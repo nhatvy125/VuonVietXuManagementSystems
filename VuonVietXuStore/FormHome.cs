@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
@@ -7,6 +7,9 @@ namespace VuonVietXuStore
 {
     public partial class FormHome : Form
     {
+        private Form1 loginForm;
+        private bool isLoggingOut = false;
+
         public FormHome()
         {
             InitializeComponent();
@@ -14,6 +17,12 @@ namespace VuonVietXuStore
             // Mặc định vừa mở phần mềm lên là nạp ngay trang Welcome và active nút Trang Chủ
             LoadUserControl(new UC_Welcomeback());
             SetActiveButton(btnTrangChu);
+            this.FormClosed += FormHome_FormClosed;
+        }
+
+        public FormHome(Form1 login) : this()
+        {
+            this.loginForm = login;
         }
 
         // Hàm lõi để xóa và nạp UserControl mới vào vùng trống bên phải (panel2)
@@ -64,6 +73,12 @@ namespace VuonVietXuStore
             SetActiveButton(btnKH);
         }
 
+        private void btnDonHang_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new UC_DonHang());
+            SetActiveButton(btnDonHang);
+        }
+
         private void btnNCC_Click(object sender, EventArgs e)
         {
             LoadUserControl(new UC_NhaCungCap());
@@ -101,10 +116,36 @@ namespace VuonVietXuStore
             DialogResult result = MessageBox.Show("Bạn có chắc muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Form1 login = new Form1();
-                login.Show();
-                this.Hide();
+                isLoggingOut = true;
+                if (loginForm != null)
+                {
+                    loginForm.Show();
+                }
+                else
+                {
+                    Form1 login = new Form1();
+                    login.Show();
+                }
+                this.Close();
             }
+        }
+
+        private void FormHome_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!isLoggingOut)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void lblRole_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

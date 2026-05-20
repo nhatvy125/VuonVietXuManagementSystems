@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -122,6 +122,12 @@
     <Compile Include="UC_CTPN.Designer.cs">
       <DependentUpon>UC_CTPN.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_DonHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DonHang.Designer.cs">
+      <DependentUpon>UC_DonHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_KhachHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -201,6 +207,9 @@
     <EmbeddedResource Include="UC_CTPN.resx">
       <DependentUpon>UC_CTPN.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_DonHang.resx">
+      <DependentUpon>UC_DonHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_KhachHang.resx">
       <DependentUpon>UC_KhachHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,6 +237,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UC_ThemDonHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_ThemDonHang.Designer.cs">
+      <DependentUpon>UC_ThemDonHang.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

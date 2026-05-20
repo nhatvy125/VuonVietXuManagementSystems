@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
@@ -73,6 +73,37 @@ namespace VuonVietXuStore
             txtSearch.Enter += TxtSearch_Enter;
             txtSearch.Leave += TxtSearch_Leave;
             txtSearch.TextChanged += TxtSearch_TextChanged;
+
+            // D. Thiết lập combobox tìm kiếm theo loại và sắp xếp
+            lblSearchIcon.Cursor = Cursors.Hand;
+            lblSearchIcon.Click += (s, e) => LoadData();
+
+            cboSearchBy.Items.Clear();
+            cboSearchBy.Items.AddRange(new object[] {
+                "Mã phiếu nhập",
+                "Tên nhà cung cấp",
+                "Ngày nhập"
+            });
+            cboSearchBy.SelectedIndex = 0;
+            cboSearchBy.SelectedIndexChanged += (s, e) => LoadData();
+
+            cboSort.Items.Clear();
+            cboSort.Items.AddRange(new object[] {
+                "Ngày nhập mới nhất",
+                "Ngày nhập cũ nhất",
+                "Tổng tiền giảm dần",
+                "Tổng tiền tăng dần"
+            });
+            cboSort.SelectedIndex = 0;
+            cboSort.SelectedIndexChanged += (s, e) => LoadData();
+
+            txtSearch.KeyDown += (s, e) => {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    e.SuppressKeyPress = true;
+                    LoadData();
+                }
+            };
         }
 
         private void TxtSearch_Enter(object sender, EventArgs e)
@@ -93,20 +124,9 @@ namespace VuonVietXuStore
             }
         }
 
-        // ======================================================================
-        // 2. LOGIC TÌM KIẾM THEO THỜI GIAN THỰC (REAL-TIME FILTER)
-        // ======================================================================
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (txtSearch.Text == "Tìm kiếm số phiếu nhập hoặc nhà cung cấp...") return;
-
-            string filterText = txtSearch.Text.Trim().Replace("'", "''");
-
-            if (dataGridView1.DataSource is DataTable dt)
-            {
-                // Tự động lọc danh sách phiếu nhập dựa theo Mã phiếu nhập đang gõ trên TextBox
-                dt.DefaultView.RowFilter = string.Format("Convert(MaPhieuNhap, 'System.String') LIKE '%{0}%'", filterText);
-            }
+            LoadData();
         }
 
         // ======================================================================
@@ -116,26 +136,65 @@ namespace VuonVietXuStore
         {
             try
             {
-                string query = "SELECT MaPhieuNhap, NgayNhap, TongTien FROM PhieuNhap";
+                string searchVal = txtSearch.Text.Trim();
+                if (searchVal == "Tìm kiếm số phiếu nhập hoặc nhà cung cấp...")
+                    searchVal = "";
 
-                // Sử dụng khối using giải phóng kết nối SQL ngay sau khi nạp xong, tránh rò rỉ bộ nhớ
+                string sortOrder = "NgayNhap DESC, MaPhieuNhap DESC";
+                if (cboSort.SelectedIndex == 1) sortOrder = "NgayNhap ASC, MaPhieuNhap ASC";
+                else if (cboSort.SelectedIndex == 2) sortOrder = "TongTien DESC";
+                else if (cboSort.SelectedIndex == 3) sortOrder = "TongTien ASC";
+
+                // Xác định cột tìm kiếm
+                string query;
+                switch (cboSearchBy.SelectedItem?.ToString())
+                {
+                    case "Tên nhà cung cấp":
+                        query = $@"SELECT pn.MaPhieuNhap, ncc.TenNCC AS [Nhà Cung Cấp], pn.NgayNhap, pn.TongTien 
+                                   FROM PhieuNhap pn
+                                   LEFT JOIN NhaCungCap ncc ON pn.MaNCC = ncc.MaNCC
+                                   WHERE ISNULL(ncc.TenNCC,'') LIKE @search
+                                   ORDER BY {sortOrder}";
+                        break;
+                    case "Ngày nhập":
+                        query = $@"SELECT pn.MaPhieuNhap, ncc.TenNCC AS [Nhà Cung Cấp], pn.NgayNhap, pn.TongTien 
+                                   FROM PhieuNhap pn
+                                   LEFT JOIN NhaCungCap ncc ON pn.MaNCC = ncc.MaNCC
+                                   WHERE CAST(pn.NgayNhap AS VARCHAR) LIKE @search
+                                   ORDER BY {sortOrder}";
+                        break;
+                    default: // Mã phiếu nhập
+                        query = $@"SELECT pn.MaPhieuNhap, ncc.TenNCC AS [Nhà Cung Cấp], pn.NgayNhap, pn.TongTien 
+                                   FROM PhieuNhap pn
+                                   LEFT JOIN NhaCungCap ncc ON pn.MaNCC = ncc.MaNCC
+                                   WHERE CAST(pn.MaPhieuNhap AS VARCHAR) LIKE @search
+                                   ORDER BY {sortOrder}";
+                        break;
+                }
+
                 using (SqlConnection connect = new SqlConnection(connectionString))
                 {
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(query, connect))
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
                     {
-                        DataTable dt = new DataTable();
-                        adapter.Fill(dt);
-
-                        dataGridView1.DataSource = dt;
-                        isLoaded = true;
-
-                        // === THÀNH PHẦN QUAN TRỌNG: ÉP CÁC CỘT GIÃN FULL MÀN HÌNH ===
-                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-                        // Định dạng hiển thị tiền tệ VNĐ có phẩy phân cách hàng nghìn (Ví dụ: 1,500,000)
-                        if (dataGridView1.Columns["TongTien"] != null)
+                        cmd.Parameters.AddWithValue("@search", "%" + searchVal + "%");
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                         {
-                            dataGridView1.Columns["TongTien"].DefaultCellStyle.Format = "N0";
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            dataGridView1.DataSource = dt;
+                            isLoaded = true;
+
+                            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                            if (dataGridView1.Columns["MaPhieuNhap"] != null) dataGridView1.Columns["MaPhieuNhap"].HeaderText = "Mã Phiếu Nhập";
+                            if (dataGridView1.Columns["NgayNhap"] != null) dataGridView1.Columns["NgayNhap"].HeaderText = "Ngày Nhập";
+                            if (dataGridView1.Columns["TongTien"] != null)
+                            {
+                                dataGridView1.Columns["TongTien"].HeaderText = "Tổng Tiền";
+                                dataGridView1.Columns["TongTien"].DefaultCellStyle.Format = "N0";
+                                dataGridView1.Columns["TongTien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                            }
                         }
                     }
                 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -15,6 +15,7 @@ namespace VuonVietXuStore
         {
             InitializeComponent();
             LoadDanhMuc();
+            LoadNhaCungCap();
             SetupHoverEffects();
 
             // === ĐĂNG KÝ SỰ KIỆN TỰ ĐỘNG PHẨY PHÂN CÁCH HÀNG NGHÌN ===
@@ -107,13 +108,38 @@ namespace VuonVietXuStore
             }
         }
 
+        private void LoadNhaCungCap()
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT MaNCC, TenNCC FROM NhaCungCap";
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(query, connect))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+
+                        cboNCC.DataSource = dt;
+                        cboNCC.DisplayMember = "TenNCC";
+                        cboNCC.ValueMember = "MaNCC";
+                        cboNCC.SelectedIndex = -1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi tải nhà cung cấp: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             // === VALIDATION: Kiểm tra xem người dùng đã nhập đủ thông tin chưa ===
-            if (string.IsNullOrWhiteSpace(txtSP.Text) || cboDanhMuc.SelectedIndex == -1 ||
+            if (string.IsNullOrWhiteSpace(txtSP.Text) || cboDanhMuc.SelectedIndex == -1 || cboNCC.SelectedIndex == -1 ||
                 string.IsNullOrWhiteSpace(txtSoLuong.Text) || string.IsNullOrWhiteSpace(txtGiaNhap.Text) || string.IsNullOrWhiteSpace(txtGiaBan.Text))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ tất cả các thông tin sản phẩm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập đầy đủ tất cả các thông tin bắt buộc!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -134,16 +160,22 @@ namespace VuonVietXuStore
             {
                 using (SqlConnection connect = new SqlConnection(connectionString))
                 {
-                    string query = "INSERT INTO SanPham (TenSP, MaDanhMuc, SoLuongTon, GiaNhap, GiaBan) " +
-                                   "VALUES (@tensp, @madm, @soluong, @gianhap, @giaban)";
+                    string query = "INSERT INTO SanPham (TenSP, MaDanhMuc, MaNCC, SoLuongTon, GiaNhap, GiaBan, XuatXu, HSD, MaVach) " +
+                                   "VALUES (@tensp, @madm, @mancc, @soluong, @gianhap, @giaban, @xuatxu, @hsd, @mavach)";
 
                     using (SqlCommand cmd = new SqlCommand(query, connect))
                     {
                         cmd.Parameters.AddWithValue("@tensp", txtSP.Text.Trim());
                         cmd.Parameters.AddWithValue("@madm", cboDanhMuc.SelectedValue);
+                        cmd.Parameters.AddWithValue("@mancc", cboNCC.SelectedValue);
                         cmd.Parameters.AddWithValue("@soluong", soLuong);
-                        cmd.Parameters.AddWithValue("@gianhap", giaNhap); // Số thuần túy hợp lệ để lưu vào SQL
-                        cmd.Parameters.AddWithValue("@giaban", giaBan);   // Số thuần túy hợp lệ để lưu vào SQL
+                        cmd.Parameters.AddWithValue("@gianhap", giaNhap);
+                        cmd.Parameters.AddWithValue("@giaban", giaBan);
+                        cmd.Parameters.AddWithValue("@xuatxu", txtXuatXu.Text.Trim());
+                        cmd.Parameters.AddWithValue("@hsd", dtpHSD.Value.Date);
+                        
+                        string barcode = "VVX" + DateTime.Now.ToString("ddHHmmss");
+                        cmd.Parameters.AddWithValue("@mavach", barcode);
 
                         connect.Open();
                         cmd.ExecuteNonQuery();

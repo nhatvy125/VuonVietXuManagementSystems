@@ -26,3 +26,4 @@ D:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonVietXuStore.exe
 D:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonVietXuStore.pdb
 D:\VuonVietXuStore\VuonVietXuStore\bin\Debug\Guna.UI2.dll
 D:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonViet.04FC3C6D.Up2Date
+d:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_DonHang.resources
