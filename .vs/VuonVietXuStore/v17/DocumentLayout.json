@@ -7,68 +7,40 @@
       "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\formhome.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\formhome.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\uc_khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\uc_khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\uc_khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\uc_khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\uc_sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\uc_sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\uc-themkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\uc-themkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\uc_sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\uc_sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\uc_sanpham.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\uc_sanpham.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\formhome.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\formhome.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\uc-nhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\uc-nhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\uc-nhaphang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\uc-nhaphang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\nhaphang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\nhaphang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\uc-themsp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\uc-themsp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\uc-themsp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\uc-themsp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\uc-themsp.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\uc-themsp.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\nhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\nhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\uc-welcomeback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\uc-welcomeback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\uc-welcomeback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\uc-welcomeback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\nhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\nhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|D:\\VuonVietXuStore\\vuonvietxustore\\formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84C95E4C-71C3-42B7-9AA5-3BD6DE4DED96}|VuonVietXuStore\\VuonVietXuStore.csproj|solutionrelative:vuonvietxustore\\formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 16,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,178 +58,94 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UC-NhapHang.cs",
-              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-NhapHang.cs",
-              "RelativeDocumentMoniker": "VuonVietXuStore\\UC-NhapHang.cs",
-              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-NhapHang.cs",
-              "RelativeToolTip": "VuonVietXuStore\\UC-NhapHang.cs",
-              "ViewState": "AgIAAKQAAAAAAAAAAAAkwLwAAAABAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "UC_KhachHang.cs",
+              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC_KhachHang.cs",
+              "RelativeDocumentMoniker": "VuonVietXuStore\\UC_KhachHang.cs",
+              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC_KhachHang.cs",
+              "RelativeToolTip": "VuonVietXuStore\\UC_KhachHang.cs",
+              "ViewState": "AgIAABUBAAAAAAAAAAAlwB4BAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T19:34:21.787Z"
+              "WhenOpened": "2026-05-20T20:29:48.035Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UC-NhapHang.Designer.cs",
-              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-NhapHang.Designer.cs",
-              "RelativeDocumentMoniker": "VuonVietXuStore\\UC-NhapHang.Designer.cs",
-              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-NhapHang.Designer.cs",
-              "RelativeToolTip": "VuonVietXuStore\\UC-NhapHang.Designer.cs",
-              "ViewState": "AgIAAMEAAAAAAAAAAAAkwMwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "UC_KhachHang.cs [Design]",
+              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC_KhachHang.cs",
+              "RelativeDocumentMoniker": "VuonVietXuStore\\UC_KhachHang.cs",
+              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC_KhachHang.cs [Design]",
+              "RelativeToolTip": "VuonVietXuStore\\UC_KhachHang.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T19:33:42.457Z"
+              "WhenOpened": "2026-05-20T20:29:36.615Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UC_SanPham.cs",
-              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC_SanPham.cs",
-              "RelativeDocumentMoniker": "VuonVietXuStore\\UC_SanPham.cs",
-              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC_SanPham.cs",
-              "RelativeToolTip": "VuonVietXuStore\\UC_SanPham.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAUwEEAAAAAAAAAAAAAAA==",
+              "Title": "UC-ThemKhachHang.cs [Design]",
+              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-ThemKhachHang.cs",
+              "RelativeDocumentMoniker": "VuonVietXuStore\\UC-ThemKhachHang.cs",
+              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-ThemKhachHang.cs [Design]",
+              "RelativeToolTip": "VuonVietXuStore\\UC-ThemKhachHang.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T19:17:19.513Z"
+              "WhenOpened": "2026-05-20T20:29:30.262Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UC_SanPham.Designer.cs",
-              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC_SanPham.Designer.cs",
-              "RelativeDocumentMoniker": "VuonVietXuStore\\UC_SanPham.Designer.cs",
-              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC_SanPham.Designer.cs",
-              "RelativeToolTip": "VuonVietXuStore\\UC_SanPham.Designer.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAUwEcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T19:16:01.904Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "UC_SanPham.cs [Design]",
               "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC_SanPham.cs",
               "RelativeDocumentMoniker": "VuonVietXuStore\\UC_SanPham.cs",
               "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC_SanPham.cs [Design]",
               "RelativeToolTip": "VuonVietXuStore\\UC_SanPham.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T19:15:50.532Z"
+              "WhenOpened": "2026-05-20T20:18:25.858Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "UC-ThemSP.Designer.cs",
-              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-ThemSP.Designer.cs",
-              "RelativeDocumentMoniker": "VuonVietXuStore\\UC-ThemSP.Designer.cs",
-              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-ThemSP.Designer.cs",
-              "RelativeToolTip": "VuonVietXuStore\\UC-ThemSP.Designer.cs",
-              "ViewState": "AgIAAKAAAAAAAAAAAAAMwKEAAAAuAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\Form1.cs",
+              "RelativeDocumentMoniker": "VuonVietXuStore\\Form1.cs",
+              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\Form1.cs",
+              "RelativeToolTip": "VuonVietXuStore\\Form1.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAApwGwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T19:10:54.047Z"
+              "WhenOpened": "2026-05-20T15:46:06.831Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UC-ThemSP.cs",
-              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-ThemSP.cs",
-              "RelativeDocumentMoniker": "VuonVietXuStore\\UC-ThemSP.cs",
-              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-ThemSP.cs",
-              "RelativeToolTip": "VuonVietXuStore\\UC-ThemSP.cs",
-              "ViewState": "AgIAAJwAAAAAAAAAAAAkwKUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T19:09:47.694Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "UC-ThemSP.cs [Design]",
-              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-ThemSP.cs",
-              "RelativeDocumentMoniker": "VuonVietXuStore\\UC-ThemSP.cs",
-              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-ThemSP.cs [Design]",
-              "RelativeToolTip": "VuonVietXuStore\\UC-ThemSP.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T19:09:43.708Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "UC-Welcomeback.cs",
-              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-Welcomeback.cs",
-              "RelativeDocumentMoniker": "VuonVietXuStore\\UC-Welcomeback.cs",
-              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-Welcomeback.cs",
-              "RelativeToolTip": "VuonVietXuStore\\UC-Welcomeback.cs",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAkwKkAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T18:26:11.565Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "UC-Welcomeback.cs [Design]",
-              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-Welcomeback.cs",
-              "RelativeDocumentMoniker": "VuonVietXuStore\\UC-Welcomeback.cs",
-              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\UC-Welcomeback.cs [Design]",
-              "RelativeToolTip": "VuonVietXuStore\\UC-Welcomeback.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T18:26:08.724Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "NhapHang.cs",
-              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\NhapHang.cs",
-              "RelativeDocumentMoniker": "VuonVietXuStore\\NhapHang.cs",
-              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\NhapHang.cs",
-              "RelativeToolTip": "VuonVietXuStore\\NhapHang.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAcwFIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T18:11:02.468Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "NhapHang.cs [Design]",
-              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\NhapHang.cs",
-              "RelativeDocumentMoniker": "VuonVietXuStore\\NhapHang.cs",
-              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\NhapHang.cs [Design]",
-              "RelativeToolTip": "VuonVietXuStore\\NhapHang.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T18:10:58.842Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "FormHome.cs",
               "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\FormHome.cs",
               "RelativeDocumentMoniker": "VuonVietXuStore\\FormHome.cs",
               "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\FormHome.cs",
               "RelativeToolTip": "VuonVietXuStore\\FormHome.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAA5wFwAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAtwJMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T18:09:56.683Z"
+              "WhenOpened": "2026-05-20T15:35:16.244Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "FormHome.cs [Design]",
               "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\FormHome.cs",
               "RelativeDocumentMoniker": "VuonVietXuStore\\FormHome.cs",
               "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\FormHome.cs [Design]",
               "RelativeToolTip": "VuonVietXuStore\\FormHome.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T18:09:45.539Z"
+              "WhenOpened": "2026-05-20T15:34:45.232Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "NhapHang.Designer.cs",
-              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\NhapHang.Designer.cs",
-              "RelativeDocumentMoniker": "VuonVietXuStore\\NhapHang.Designer.cs",
-              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\NhapHang.Designer.cs",
-              "RelativeToolTip": "VuonVietXuStore\\NhapHang.Designer.cs",
-              "ViewState": "AgIAAA0BAAAAAAAAAAAkwBABAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\Form1.cs",
+              "RelativeDocumentMoniker": "VuonVietXuStore\\Form1.cs",
+              "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\Form1.cs [Design]",
+              "RelativeToolTip": "VuonVietXuStore\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T17:29:41.243Z"
+              "WhenOpened": "2026-05-20T15:34:35.225Z"
             },
             {
               "$type": "Document",
@@ -267,20 +155,20 @@
               "RelativeDocumentMoniker": "VuonVietXuStore\\Program.cs",
               "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\Program.cs",
               "RelativeToolTip": "VuonVietXuStore\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-19T17:28:34.308Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "FormHome.Designer.cs",
               "DocumentMoniker": "D:\\VuonVietXuStore\\VuonVietXuStore\\FormHome.Designer.cs",
               "RelativeDocumentMoniker": "VuonVietXuStore\\FormHome.Designer.cs",
               "ToolTip": "D:\\VuonVietXuStore\\VuonVietXuStore\\FormHome.Designer.cs",
               "RelativeToolTip": "VuonVietXuStore\\FormHome.Designer.cs",
-              "ViewState": "AgIAAPwAAAAAAAAAAAAkwBABAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIBAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-19T17:27:54.095Z"
             }
