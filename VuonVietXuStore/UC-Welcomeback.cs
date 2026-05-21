@@ -10,12 +10,10 @@ namespace VuonVietXuStore
 {
     public partial class UC_Welcomeback : UserControl
     {
-        // Khai báo các màu sắc chủ đạo theo tone Thực phẩm sạch
         private Color colorDefaultBg = Color.White;
-        private Color colorHoverBg = Color.FromArgb(235, 247, 238); // Xanh lá cực nhẹ khi hover card
+        private Color colorHoverBg = Color.FromArgb(235, 247, 238); 
         private Color colorBorderDefault = Color.FromArgb(220, 230, 222);
 
-        // Quản lý trạng thái Animation phóng to thu nhỏ của Card
         private Timer animationTimer = new Timer();
         private Panel activeCard = null;
         private bool isExpanding = true;
@@ -25,11 +23,9 @@ namespace VuonVietXuStore
         {
             InitializeComponent();
 
-            // Bật DoubleBuffered để tránh hiện tượng màn hình bị giật/nháy
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
             this.UpdateStyles();
 
-            // Thiết lập ngày tháng hiện tại hiển thị ở Top Panel
             lblDate.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy", new System.Globalization.CultureInfo("vi-VN"));
 
             SetupCardEffects();
@@ -38,7 +34,6 @@ namespace VuonVietXuStore
             LoadDashboardData();
         }
 
-        // 1. CẤU HÌNH DATAGRIDVIEW ĐẸP CHUYÊN NGHIỆP
         private void ConfigureDataGridViews()
         {
             // Đơn hàng chờ xác nhận
@@ -64,7 +59,7 @@ namespace VuonVietXuStore
             btnCol.Text = "Duyệt";
             btnCol.UseColumnTextForButtonValue = true;
             btnCol.FlatStyle = FlatStyle.Flat;
-            btnCol.DefaultCellStyle.BackColor = Color.FromArgb(241, 196, 15); // Màu vàng của TwelveFit
+            btnCol.DefaultCellStyle.BackColor = Color.FromArgb(241, 196, 15);
             btnCol.DefaultCellStyle.ForeColor = Color.Black;
             btnCol.DefaultCellStyle.SelectionBackColor = Color.FromArgb(241, 196, 15);
             btnCol.DefaultCellStyle.SelectionForeColor = Color.Black;
@@ -89,7 +84,6 @@ namespace VuonVietXuStore
             dgvLichSuDonHang.Columns.Add(colStatus);
         }
 
-        // 2. NẠP DỮ LIỆU TỪ CƠ SỞ DỮ LIỆU SQL SERVER
         private void LoadDashboardData()
         {
             string connStr = ConfigurationManager.ConnectionStrings["VuonVietXuStore"].ConnectionString;
@@ -120,7 +114,7 @@ namespace VuonVietXuStore
                     int totalCustomers = (int)cmdCustomers.ExecuteScalar();
                     lblCard4Val.Text = totalCustomers.ToString();
 
-                    // 5. Nạp Đơn hàng chờ xác nhận (3 đơn hàng mới nhất)
+                    // 5. Nạp Đơn hàng chờ xác nhận
                     string queryPending = @"
                         SELECT TOP 3 
                             dh.MaDH AS [Mã Đơn], 
@@ -136,7 +130,7 @@ namespace VuonVietXuStore
                     daPending.Fill(dtPending);
                     dgvChoXacNhan.DataSource = dtPending;
 
-                    // 6. Nạp Lịch sử đơn hàng (5 đơn hàng gần đây)
+                    // 6. Nạp Lịch sử đơn hàng
                     string queryHistory = @"
                         SELECT TOP 5 
                             dh.MaDH AS [Mã Đơn], 
@@ -152,7 +146,7 @@ namespace VuonVietXuStore
                     daHistory.Fill(dtHistory);
                     dgvLichSuDonHang.DataSource = dtHistory;
 
-                    // 7. Nạp danh sách sản phẩm sắp hết hàng (FlowLayoutPanel)
+                    // 7. Nạp danh sách sản phẩm sắp hết hàng 
                     flpSapHetHang.Controls.Clear();
                     string queryLowStockList = "SELECT TOP 5 TenSP, SoLuongTon, GiaBan FROM SanPham WHERE SoLuongTon < 15 ORDER BY SoLuongTon ASC";
                     SqlCommand cmdLowStockList = new SqlCommand(queryLowStockList, conn);
@@ -176,12 +170,11 @@ namespace VuonVietXuStore
             }
         }
 
-        // 3. TẠO ITEM SẢN PHẨM SẮP HẾT HÀNG TRỰC QUAN (GIỐNG LỊCH HỌC SẮP TỚI)
         private Panel CreateLowStockItem(string tenSp, int tonKho, decimal giaBan)
         {
             Panel panel = new Panel();
             panel.Size = new Size(flpSapHetHang.Width - 25, 60);
-            panel.BackColor = Color.FromArgb(248, 249, 250); // Màu nền xám nhẹ
+            panel.BackColor = Color.FromArgb(248, 249, 250); 
             panel.Margin = new Padding(0, 0, 0, 8);
             panel.Padding = new Padding(5);
 
@@ -193,17 +186,15 @@ namespace VuonVietXuStore
                 }
             };
 
-            // Badge Tồn kho màu đỏ nổi bật
             Label lblBadge = new Label();
             lblBadge.Text = "Tồn: " + tonKho;
             lblBadge.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblBadge.ForeColor = Color.White;
-            lblBadge.BackColor = Color.FromArgb(231, 76, 60); // Màu đỏ
+            lblBadge.BackColor = Color.FromArgb(231, 76, 60); 
             lblBadge.TextAlign = ContentAlignment.MiddleCenter;
             lblBadge.Size = new Size(58, 26);
             lblBadge.Location = new Point(10, 17);
 
-            // Bo tròn nhẹ cho badge bằng Region
             GraphicsPath path = new GraphicsPath();
             int r = 6;
             path.AddArc(0, 0, r, r, 180, 90);
@@ -212,7 +203,6 @@ namespace VuonVietXuStore
             path.AddArc(0, lblBadge.Height - r, r, r, 90, 90);
             lblBadge.Region = new Region(path);
 
-            // Tên sản phẩm
             Label lblName = new Label();
             lblName.Text = tenSp;
             lblName.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -220,7 +210,6 @@ namespace VuonVietXuStore
             lblName.Location = new Point(80, 10);
             lblName.Size = new Size(panel.Width - 90, 20);
 
-            // Giá bán
             Label lblPrice = new Label();
             lblPrice.Text = "Giá bán: " + giaBan.ToString("N0") + " đ";
             lblPrice.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
@@ -235,7 +224,6 @@ namespace VuonVietXuStore
             return panel;
         }
 
-        // 4. XỬ LÝ SỰ KIỆN DUYỆT ĐƠN HÀNG THỰC TẾ
         private void dgvChoXacNhan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dgvChoXacNhan.Columns[e.ColumnIndex].Name == "Duyet")
@@ -267,14 +255,12 @@ namespace VuonVietXuStore
             }
         }
 
-        // 5. CO GIÃN TỰ ĐỘNG THEO MÀN HÌNH (RESPONSIVE)
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
 
             if (panelScrollContainer == null || panelCards == null || card1 == null) return;
 
-            // Đặt kích thước container cuộn khớp vùng dưới panelTop
             panelScrollContainer.Width = this.Width;
             panelScrollContainer.Height = this.Height - panelTop.Height;
 
@@ -282,7 +268,6 @@ namespace VuonVietXuStore
             int contentLeft = (panelScrollContainer.Width - contentWidth) / 2;
             if (contentLeft < 15) contentLeft = 15;
 
-            // Cập nhật kích thước panelCards
             panelCards.Left = contentLeft;
             panelCards.Width = contentWidth;
 
@@ -301,18 +286,15 @@ namespace VuonVietXuStore
             card3.Left = (cardWidth * 2) + 40;
             card4.Left = (cardWidth * 3) + 60;
 
-            // Sắp xếp các control bên trong Card
             LayoutControlsInCard(card1, lblCard1Icon, lblCard1Badge, lblCard1Title, lblCard1Val);
             LayoutControlsInCard(card2, lblCard2Icon, lblCard2Badge, lblCard2Title, lblCard2Val);
             LayoutControlsInCard(card3, lblCard3Icon, lblCard3Badge, lblCard3Title, lblCard3Val);
             LayoutControlsInCard(card4, lblCard4Icon, lblCard4Badge, lblCard4Title, lblCard4Val);
 
-            // Cập nhật kích thước panelMiddle (Đơn hàng chờ xác nhận)
             panelMiddle.Left = contentLeft;
             panelMiddle.Width = contentWidth;
             dgvChoXacNhan.Width = contentWidth;
 
-            // Cập nhật kích thước panelBottom
             panelBottom.Left = contentLeft;
             panelBottom.Width = contentWidth;
 
@@ -327,7 +309,6 @@ namespace VuonVietXuStore
             panelBottomRight.Width = rightColWidth;
             flpSapHetHang.Width = rightColWidth;
 
-            // Resize lại các panel sản phẩm sắp hết hàng theo chiều rộng mới
             foreach (Control ctrl in flpSapHetHang.Controls)
             {
                 if (ctrl is Panel p)
@@ -357,7 +338,6 @@ namespace VuonVietXuStore
             val.Width = card.Width - 30;
         }
 
-        // 6. TẠO HIỆU ỨNG DI CHUỘT (HOVER EFFECT)
         private void SetupCardEffects()
         {
             Panel[] cards = { card1, card2, card3, card4 };
@@ -396,7 +376,6 @@ namespace VuonVietXuStore
             }
         }
 
-        // 7. ANIMATION PHÓNG TO CARD NHẸ NHÀNG
         private void InitAnimation()
         {
             animationTimer.Interval = 10;

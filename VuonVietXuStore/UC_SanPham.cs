@@ -15,11 +15,10 @@ namespace VuonVietXuStore
         {
             InitializeComponent();
             
-            // Hook up events
+            
             this.txtSearch.TextChanged += txtSearch_TextChanged;
             this.dgvSanPham.CellClick += dgvSanPham_CellClick;
 
-            // Cấu hình nút tìm kiếm
             btnSearch.BackColor = Color.FromArgb(18, 78, 44);
             btnSearch.ForeColor = Color.White;
             btnSearch.FlatStyle = FlatStyle.Flat;
@@ -27,7 +26,6 @@ namespace VuonVietXuStore
             btnSearch.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSearch.Cursor = Cursors.Hand;
 
-            // === CẤU HÌNH cboSearchBy: Mặc định tìm theo MÃ SẢN PHẨM ===
             cboSearchBy.Items.Clear();
             cboSearchBy.Items.AddRange(new object[] {
                 "Mã sản phẩm",
@@ -35,15 +33,12 @@ namespace VuonVietXuStore
                 "Mã vạch",
                 "Danh mục"
             });
-            cboSearchBy.SelectedIndex = 0; // Mặc định: Mã sản phẩm
+            cboSearchBy.SelectedIndex = 0; 
 
-            // Cập nhật placeholder khi đổi loại tìm kiếm
             cboSearchBy.SelectedIndexChanged += (s, e) => UpdateSearchPlaceholder();
 
-            // Gọi UpdateSearchPlaceholder sau khi Form load xong (Handle cần sẵn)
             this.Load += (s, e) => UpdateSearchPlaceholder();
 
-            // Cấu hình sắp xếp
             cboSort.Items.Clear();
             cboSort.Items.AddRange(new object[] {
                 "Mặc định (Mã mới nhất)",
@@ -57,7 +52,6 @@ namespace VuonVietXuStore
             cboSort.SelectedIndex = 0;
             cboSort.SelectedIndexChanged += (s, e) => LoadDataSP();
 
-            // Sự kiện tìm kiếm
             btnSearch.Click += (s, e) => LoadDataSP();
             txtSearch.KeyDown += (s, e) => {
                 if (e.KeyCode == Keys.Enter)
@@ -67,7 +61,6 @@ namespace VuonVietXuStore
                 }
             };
 
-            // Bảng tự động giãn
             dgvSanPham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnThem.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -75,7 +68,7 @@ namespace VuonVietXuStore
             LoadDataSP();
         }
 
-        // Cập nhật gợi ý trong ô tìm kiếm theo lựa chọn (dùng WinAPI vì .NET Framework không có PlaceholderText)
+        // Cập nhật gợi ý trong ô tìm kiếm theo lựa chọn
         [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
         private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, string lParam);
         private const int EM_SETCUEBANNER = 0x1501;

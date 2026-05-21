@@ -17,12 +17,10 @@ namespace VuonVietXuStore
             InitializeComponent();
             this.maKH = id;
             
-            // Populate fields
             txtKH.Text = tenKH;
             txtSDT.Text = sdt;
             txtDiaChi.Text = diaChi;
 
-            // Load extra customer details (Points & History)
             LoadCustomerDetails();
             SetupStyles();
         }
@@ -31,12 +29,10 @@ namespace VuonVietXuStore
         {
             this.BackColor = Color.FromArgb(242, 247, 244);
 
-            // Title
             lblTitle.Text = "HỒ SƠ KHÁCH HÀNG & TÍCH ĐIỂM";
             lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lblTitle.ForeColor = Color.FromArgb(18, 78, 44);
 
-            // Labels
             label1.Text = "Họ và tên:";
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             label1.ForeColor = Color.FromArgb(64, 64, 64);
@@ -53,13 +49,11 @@ namespace VuonVietXuStore
             lblDiem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblDiem.ForeColor = Color.FromArgb(64, 64, 64);
 
-            // Inputs
             txtKH.Font = new Font("Segoe UI", 11F);
             txtSDT.Font = new Font("Segoe UI", 11F);
             txtDiaChi.Font = new Font("Segoe UI", 11F);
             txtDiemTichLuy.Font = new Font("Segoe UI", 11F);
 
-            // Buttons
             btnSave.Text = "💾 Lưu thay đổi";
             btnSave.BackColor = Color.FromArgb(18, 78, 44);
             btnSave.ForeColor = Color.White;
@@ -76,7 +70,6 @@ namespace VuonVietXuStore
             btnCancel.FlatAppearance.BorderSize = 0;
             btnCancel.Cursor = Cursors.Hand;
 
-            // Card Panel
             panelPointsCard.BackColor = Color.FromArgb(18, 78, 44);
             lblCardTitle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblCardTitle.ForeColor = Color.FromArgb(200, 255, 210);
@@ -87,7 +80,6 @@ namespace VuonVietXuStore
             lblCardDesc.Font = new Font("Segoe UI", 8.5F, FontStyle.Italic);
             lblCardDesc.ForeColor = Color.FromArgb(220, 255, 220);
 
-            // DataGridView Styles
             lblHistory.Text = "📜 LỊCH SỬ GIAO DỊCH";
             lblHistory.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblHistory.ForeColor = Color.FromArgb(18, 78, 44);
@@ -122,7 +114,7 @@ namespace VuonVietXuStore
                 {
                     connect.Open();
 
-                    // 1. Load loyalty points
+                    // Điểm tích lũy
                     string queryPoints = "SELECT DiemTichLuy FROM KhachHang WHERE MaKH = @id";
                     using (SqlCommand cmd = new SqlCommand(queryPoints, connect))
                     {
@@ -134,7 +126,7 @@ namespace VuonVietXuStore
                         lblCardPoints.Text = points.ToString("N0") + " ĐIỂM";
                     }
 
-                    // 2. Load order transaction history
+                    // Lịch sử mua hàng
                     string queryHistory = @"
                         SELECT 
                             MaDH, 
@@ -157,7 +149,6 @@ namespace VuonVietXuStore
                     }
                 }
 
-                // Format Grid Columns
                 dgvHistory.AllowUserToAddRows = false;
                 dgvHistory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
@@ -223,7 +214,7 @@ namespace VuonVietXuStore
                     }
                 }
 
-                MessageBox.Show("Cập nhật thông tin khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 GoBack();
             }
             catch (Exception ex)

@@ -17,8 +17,6 @@ namespace VuonVietXuStore
         {
             InitializeComponent();
             txtPassword.UseSystemPasswordChar = true;
-
-            // Thêm hiệu ứng hover cho nút đăng nhập
             btnLogin.MouseEnter += (s, e) => btnLogin.BackColor = Color.FromArgb(22, 110, 68);
             btnLogin.MouseLeave += (s, e) => btnLogin.BackColor = Color.FromArgb(13, 74, 46);
 
@@ -26,13 +24,11 @@ namespace VuonVietXuStore
             txtPassword.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) btnLogin_Click(s, e); };
             txtUsername.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) btnLogin_Click(s, e); };
 
-            // Tải ảnh login_bg vào picLogo từ Resources folder
             LoadLoginBackground();
         }
 
         private void LoadLoginBackground()
         {
-            // Thử load từ thư mục chạy
             string[] paths = new[]
             {
                 Path.Combine(Application.StartupPath, "Resources", "login_bg.png"),
@@ -131,7 +127,6 @@ namespace VuonVietXuStore
 
         private void panelLeft_Paint(object sender, PaintEventArgs e)
         {
-            // Vẽ gradient đẹp cho panel trái: từ xanh đậm sang xanh lá trung
             using (LinearGradientBrush brush = new LinearGradientBrush(
                 panelLeft.ClientRectangle,
                 Color.FromArgb(8, 50, 30),
@@ -141,7 +136,6 @@ namespace VuonVietXuStore
                 e.Graphics.FillRectangle(brush, panelLeft.ClientRectangle);
             }
 
-            // Vẽ vòng tròn trang trí góc dưới phải
             using (SolidBrush circleBrush = new SolidBrush(Color.FromArgb(30, 255, 255, 255)))
             {
                 e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;

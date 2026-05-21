@@ -30,16 +30,13 @@ namespace VuonVietXuStore
 
         private void SetupStyles()
         {
-            // Background color matching the organic theme
             this.BackColor = Color.FromArgb(242, 247, 244);
 
-            // Title styling
             label1.Text = "QUẢN LÝ KHÁCH HÀNG";
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             label1.ForeColor = Color.FromArgb(18, 78, 44);
             label1.Location = new Point(30, 25);
 
-            // Button styling
             btnAdd.Text = "➕ Thêm khách hàng";
             btnAdd.BackColor = Color.FromArgb(18, 78, 44);
             btnAdd.ForeColor = Color.White;
@@ -48,10 +45,8 @@ namespace VuonVietXuStore
             btnAdd.FlatAppearance.BorderSize = 0;
             btnAdd.Cursor = Cursors.Hand;
 
-            // Textbox search
             txtSearch.Font = new Font("Segoe UI", 10.5F);
 
-            // DataGridView styling
             dgvKH.BackgroundColor = Color.White;
             dgvKH.BorderStyle = BorderStyle.None;
             dgvKH.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -73,7 +68,6 @@ namespace VuonVietXuStore
             dgvKH.DefaultCellStyle.SelectionBackColor = Color.FromArgb(235, 247, 238);
             dgvKH.DefaultCellStyle.SelectionForeColor = Color.FromArgb(18, 78, 44);
 
-            // Setup sorting and searching controls
             btnSearch.BackColor = Color.FromArgb(18, 78, 44);
             btnSearch.ForeColor = Color.White;
             btnSearch.FlatStyle = FlatStyle.Flat;
@@ -81,7 +75,6 @@ namespace VuonVietXuStore
             btnSearch.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSearch.Cursor = Cursors.Hand;
 
-            // Search-by dropdown
             cboSearchBy.Items.Clear();
             cboSearchBy.Items.AddRange(new object[] {
                 "Mã khách hàng",
@@ -107,7 +100,7 @@ namespace VuonVietXuStore
             txtSearch.KeyDown += (s, e) => {
                 if (e.KeyCode == Keys.Enter)
                 {
-                    e.SuppressKeyPress = true; // Prevents beep
+                    e.SuppressKeyPress = true; 
                     LoadData();
                 }
             };

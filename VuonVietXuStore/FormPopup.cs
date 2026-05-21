@@ -17,7 +17,6 @@ namespace VuonVietXuStore
             this.MinimizeBox = false;
             this.BackColor = Color.FromArgb(242, 247, 244);
 
-            // Set size based on the user control
             this.ClientSize = new Size(userControl.Width, userControl.Height);
 
             containerPanel = new Panel();
@@ -25,7 +24,6 @@ namespace VuonVietXuStore
             containerPanel.BackColor = Color.Transparent;
             this.Controls.Add(containerPanel);
 
-            // Hook up ControlAdded event to detect when the user control tries to transition back
             containerPanel.ControlAdded += ContainerPanel_ControlAdded;
 
             userControl.Dock = DockStyle.Fill;
@@ -34,8 +32,6 @@ namespace VuonVietXuStore
 
         private void ContainerPanel_ControlAdded(object sender, ControlEventArgs e)
         {
-            // If the control being added is a list control (which means they clicked Save/Cancel/Quay lai)
-            // we close the popup instead of showing the list control inside the popup.
             string controlName = e.Control.GetType().Name;
             if (controlName == "UC_SanPham" || 
                 controlName == "UC_KhachHang" || 
