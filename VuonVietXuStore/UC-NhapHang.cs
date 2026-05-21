@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
@@ -169,7 +169,14 @@ namespace VuonVietXuStore
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            LoadUC(new UC_ThemPhieuNhap());
+            UC_ThemPhieuNhap uc = new UC_ThemPhieuNhap();
+            using (FormPopupContainer popup = new FormPopupContainer(uc, "Thêm phiếu nhập mới"))
+            {
+                if (popup.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

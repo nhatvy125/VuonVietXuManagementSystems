@@ -1,4 +1,4 @@
-﻿namespace VuonVietXuStore
+namespace VuonVietXuStore
 {
     partial class UC_SanPham
     {
@@ -69,6 +69,7 @@
             this.btnThem.TabIndex = 5;
             this.btnThem.Text = "➕ Thêm sản phẩm";
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // dgvSanPham
@@ -106,6 +107,9 @@
             this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSanPham.Size = new System.Drawing.Size(840, 520);
             this.dgvSanPham.TabIndex = 4;
+            this.dgvSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // UC_SanPham
             // 

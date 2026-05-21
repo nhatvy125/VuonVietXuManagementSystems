@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
@@ -90,14 +90,12 @@ namespace VuonVietXuStore
         private void btnAdd_Click(object sender, EventArgs e)
         {
             UC_ThemNCC uc = new UC_ThemNCC();
-            uc.Dock = DockStyle.Fill;
-
-            Panel panel = this.Parent as Panel;
-
-            if (panel != null)
+            using (FormPopupContainer popup = new FormPopupContainer(uc, "Thêm nhà cung cấp mới"))
             {
-                panel.Controls.Clear();
-                panel.Controls.Add(uc);
+                if (popup.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
             }
         }
 

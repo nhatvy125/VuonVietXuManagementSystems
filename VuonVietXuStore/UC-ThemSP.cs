@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -166,6 +166,14 @@ namespace VuonVietXuStore
 
         private void QuayVeTrangSanPham()
         {
+            Form parentForm = this.FindForm();
+            if (parentForm != null && parentForm.GetType().Name == "FormPopupContainer")
+            {
+                parentForm.DialogResult = DialogResult.OK;
+                parentForm.Close();
+                return;
+            }
+
             UC_SanPham uc = new UC_SanPham();
             uc.Dock = DockStyle.Fill;
 

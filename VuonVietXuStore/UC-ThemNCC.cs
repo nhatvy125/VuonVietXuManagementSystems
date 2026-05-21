@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -40,15 +40,7 @@ namespace VuonVietXuStore
 
                 connect.Close();
 
-                UC_NhaCungCap uc = new UC_NhaCungCap();
-
-                uc.Dock = DockStyle.Fill;
-
-                Panel panel = this.Parent as Panel;
-
-                panel.Controls.Clear();
-
-                panel.Controls.Add(uc);
+                QuayVeTrangNCC(true);
             }
             catch (Exception ex)
             {
@@ -58,15 +50,27 @@ namespace VuonVietXuStore
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            QuayVeTrangNCC(false);
+        }
+
+        private void QuayVeTrangNCC(bool isSaved)
+        {
+            Form parentForm = this.FindForm();
+            if (parentForm != null && parentForm.GetType().Name == "FormPopupContainer")
+            {
+                parentForm.DialogResult = isSaved ? DialogResult.OK : DialogResult.Cancel;
+                parentForm.Close();
+                return;
+            }
+
             UC_NhaCungCap uc = new UC_NhaCungCap();
-
             uc.Dock = DockStyle.Fill;
-
             Panel panel = this.Parent as Panel;
-
-            panel.Controls.Clear();
-
-            panel.Controls.Add(uc);
+            if (panel != null)
+            {
+                panel.Controls.Clear();
+                panel.Controls.Add(uc);
+            }
         }
     }
 }

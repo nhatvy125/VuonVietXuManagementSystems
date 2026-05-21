@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -41,8 +41,11 @@ namespace VuonVietXuStore
                 try
                 {
                     connect.Open();
-                    string selectData = "SELECT * FROM users WHERE username = @usern AND password = @pass";
-
+                    string selectData = @"
+                        SELECT u.username, u.RoleId, r.RoleName
+                        FROM Users u
+                        JOIN Roles r ON u.RoleId = r.RoleId
+                        WHERE u.username = @usern AND u.password = @pass";
                     using (SqlCommand cmd = new SqlCommand(selectData, connect))
                     {
                         cmd.Parameters.AddWithValue("@usern", txtUsername.Text.Trim());
@@ -52,9 +55,13 @@ namespace VuonVietXuStore
                         DataTable table = new DataTable();
                         adapter.Fill(table);
 
-if (table.Rows.Count > 0)
+                        if (table.Rows.Count > 0)
                         {
-                            FormHome home = new FormHome();
+                            int roleId = Convert.ToInt32(table.Rows[0]["RoleId"]);
+                            string username = table.Rows[0]["username"].ToString();
+                            string roleName = table.Rows[0]["RoleName"].ToString();
+
+                            FormHome home = new FormHome(roleId, username, roleName);
                             home.Show();
                             this.Hide();
                         }

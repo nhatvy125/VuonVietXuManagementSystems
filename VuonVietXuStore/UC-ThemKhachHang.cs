@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -44,15 +44,7 @@ namespace VuonVietXuStore
 
                 connect.Close();
 
-                UC_KhachHang uc = new UC_KhachHang();
-
-                uc.Dock = DockStyle.Fill;
-
-                Panel panel = this.Parent as Panel;
-
-                panel.Controls.Clear();
-
-                panel.Controls.Add(uc);
+                QuayVeTrangKH(true);
             }
             catch (Exception ex)
             {
@@ -62,15 +54,27 @@ namespace VuonVietXuStore
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            QuayVeTrangKH(false);
+        }
+
+        private void QuayVeTrangKH(bool isSaved)
+        {
+            Form parentForm = this.FindForm();
+            if (parentForm != null && parentForm.GetType().Name == "FormPopupContainer")
+            {
+                parentForm.DialogResult = isSaved ? DialogResult.OK : DialogResult.Cancel;
+                parentForm.Close();
+                return;
+            }
+
             UC_KhachHang uc = new UC_KhachHang();
-
             uc.Dock = DockStyle.Fill;
-
             Panel panel = this.Parent as Panel;
-
-            panel.Controls.Clear();
-
-            panel.Controls.Add(uc);
+            if (panel != null)
+            {
+                panel.Controls.Clear();
+                panel.Controls.Add(uc);
+            }
         }
     }
 }

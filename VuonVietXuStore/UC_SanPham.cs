@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -23,6 +23,9 @@ namespace VuonVietXuStore
 
             // 3. Tự động bo giãn nút "Thêm sản phẩm" luôn nằm góc bên phải màn hình
             btnThem.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+
+            // 4. Đăng ký sự kiện Enter trong ô tìm kiếm
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
         }
 
         private void LoadDataSP()
@@ -50,17 +53,60 @@ namespace VuonVietXuStore
         // === NÚT THÊM SẢN PHẨM HOẠT ĐỘNG CHUẨN UX ===
         private void btnThem_Click(object sender, EventArgs e)
         {
-            // Tạo đối tượng màn hình Thêm sản phẩm mới
             UC_ThemSP uc = new UC_ThemSP();
-            uc.Dock = DockStyle.Fill;
-
-            // Tìm Panel cha đang chứa UC_SanPham hiện tại (chính là panel2 của FormHome)
-            Panel parentPanel = this.Parent as Panel;
-            if (parentPanel != null)
+            using (FormPopupContainer popup = new FormPopupContainer(uc, "Thêm sản phẩm mới"))
             {
-                parentPanel.Controls.Clear();     // Xóa màn hình danh sách cũ
-                parentPanel.Controls.Add(uc);     // Đẩy giao diện Thêm sản phẩm mới vào
-                uc.BringToFront();
+                if (popup.ShowDialog() == DialogResult.OK)
+                {
+                    LoadDataSP();
+                }
+            }
+        }
+
+        private void PerformSearch()
+        {
+            string keyword = txtSearch.Text.Trim();
+            if (string.IsNullOrEmpty(keyword))
+            {
+                LoadDataSP();
+            }
+            else
+            {
+                SearchDataSP(keyword);
+            }
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // Chặn tiếng bíp của Windows khi nhấn Enter
+                PerformSearch();
+            }
+        }
+
+        private void SearchDataSP(string keyword)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT MaSP, TenSP, SoLuongTon, GiaNhap, GiaBan FROM SanPham WHERE TenSP LIKE @keyword OR MaSP LIKE @keyword";
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            dgvSanPham.DataSource = dt;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi tìm kiếm sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

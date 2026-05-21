@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +36,9 @@
   <ItemGroup>
     <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Extensions">
+      <HintPath>$(UserProfile)\.nuget\packages\system.resources.extensions\6.0.0\lib\net461\System.Resources.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -140,6 +144,12 @@
     <Compile Include="UC_SanPham.Designer.cs">
       <DependentUpon>UC_SanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_CaiDat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_CaiDat.Designer.cs">
+      <DependentUpon>UC_CaiDat.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_SuaKhachHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -241,6 +251,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Resources.Extensions">
+      <Version>6.0.0</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

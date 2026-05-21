@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
@@ -195,7 +195,7 @@ namespace VuonVietXuStore
                 }
 
                 MessageBox.Show("Đã lưu Phiếu Nhập thành công rực rỡ! 🎉", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                NavigateBack(); // Trở về trang danh sách
+                NavigateBack(true); // Trở về trang danh sách
             }
             catch (Exception ex)
             {
@@ -211,12 +211,20 @@ namespace VuonVietXuStore
         // Hủy bỏ
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            NavigateBack();
+            NavigateBack(false);
         }
 
         // Hàm hỗ trợ quay lại trang Quản lý Nhập Hàng
-        private void NavigateBack()
+        private void NavigateBack(bool isSaved = false)
         {
+            Form parentForm = this.FindForm();
+            if (parentForm != null && parentForm.GetType().Name == "FormPopupContainer")
+            {
+                parentForm.DialogResult = isSaved ? DialogResult.OK : DialogResult.Cancel;
+                parentForm.Close();
+                return;
+            }
+
             UC_NhapHang uc = new UC_NhapHang();
             uc.Dock = DockStyle.Fill;
 
