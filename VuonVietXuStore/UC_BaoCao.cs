@@ -22,7 +22,6 @@ namespace VuonVietXuStore
             cbBaoCao.DropDownStyle = ComboBoxStyle.DropDownList;
             cbBaoCao.SelectedIndex = 0;
 
-            // Premium card styling
             panel1.BackColor = Color.White;
             panel1.Paint += panel1_Paint;
             
@@ -36,12 +35,11 @@ namespace VuonVietXuStore
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            // Left forest green stripe
             using (SolidBrush brush = new SolidBrush(Color.FromArgb(18, 78, 44)))
             {
                 e.Graphics.FillRectangle(brush, 0, 0, 6, panel1.Height);
             }
-            // Light grey border
+            
             using (Pen pen = new Pen(Color.FromArgb(224, 232, 228), 1))
             {
                 e.Graphics.DrawRectangle(pen, 0, 0, panel1.Width - 1, panel1.Height - 1);
@@ -57,7 +55,6 @@ namespace VuonVietXuStore
                 chart1.Series.Clear();
                 chart1.Titles.Clear();
 
-                // Style the chart area
                 chart1.BackColor = Color.White;
                 if (chart1.ChartAreas.Count > 0)
                 {
@@ -92,8 +89,8 @@ namespace VuonVietXuStore
 
                     series.Name = "DoanhThu";
                     series.ChartType = SeriesChartType.SplineArea;
-                    series.Color = Color.FromArgb(120, 46, 204, 113); // Transparent green
-                    series.BorderColor = Color.FromArgb(46, 204, 113); // Solid green
+                    series.Color = Color.FromArgb(120, 46, 204, 113); 
+                    series.BorderColor = Color.FromArgb(46, 204, 113); 
                     series.BorderWidth = 3;
                     series.MarkerStyle = MarkerStyle.Circle;
                     series.MarkerSize = 8;
@@ -153,8 +150,8 @@ namespace VuonVietXuStore
 
                     series.Name = "NhapHang";
                     series.ChartType = SeriesChartType.SplineArea;
-                    series.Color = Color.FromArgb(120, 52, 152, 219); // Transparent blue
-                    series.BorderColor = Color.FromArgb(52, 152, 219); // Solid blue
+                    series.Color = Color.FromArgb(120, 52, 152, 219); 
+                    series.BorderColor = Color.FromArgb(52, 152, 219); 
                     series.BorderWidth = 3;
                     series.MarkerStyle = MarkerStyle.Circle;
                     series.MarkerSize = 8;
@@ -229,7 +226,7 @@ namespace VuonVietXuStore
                     chart1.Titles.Add(title);
 
                     series.Name = "HetHang";
-                    series.ChartType = SeriesChartType.Bar; // Horizontal bars look awesome
+                    series.ChartType = SeriesChartType.Bar; 
                     series.Color = Color.FromArgb(231, 76, 60);
                     series.BackSecondaryColor = Color.FromArgb(192, 57, 43);
                     series.BackGradientStyle = GradientStyle.LeftRight;

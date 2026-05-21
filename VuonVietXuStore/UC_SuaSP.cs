@@ -30,7 +30,6 @@ namespace VuonVietXuStore
 
             SetupStyles();
             
-            // Format input keys as they type
             txtGiaNhap.TextChanged += txtGiaTien_TextChanged;
             txtGiaBan.TextChanged += txtGiaTien_TextChanged;
         }
@@ -39,12 +38,10 @@ namespace VuonVietXuStore
         {
             this.BackColor = Color.FromArgb(242, 247, 244);
 
-            // Title
             lblTitle.Text = "CẬP NHẬT THÔNG TIN SẢN PHẨM";
             lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblTitle.ForeColor = Color.FromArgb(18, 78, 44);
 
-            // Labels
             label1.Text = "Tên sản phẩm:";
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             label1.ForeColor = Color.FromArgb(64, 64, 64);
@@ -65,14 +62,12 @@ namespace VuonVietXuStore
             label4.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             label4.ForeColor = Color.FromArgb(64, 64, 64);
 
-            // TextBoxes
             txtSP.Font = new Font("Segoe UI", 11F);
             txtMaVach.Font = new Font("Segoe UI", 11F);
             txtSoLuong.Font = new Font("Segoe UI", 11F);
             txtGiaNhap.Font = new Font("Segoe UI", 11F);
             txtGiaBan.Font = new Font("Segoe UI", 11F);
 
-            // Buttons
             btnSave.Text = "💾 Lưu thay đổi";
             btnSave.BackColor = Color.FromArgb(18, 78, 44);
             btnSave.ForeColor = Color.White;
@@ -158,7 +153,6 @@ namespace VuonVietXuStore
                     }
                 }
 
-                MessageBox.Show("Cập nhật sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 GoBack();
             }
             catch (Exception ex)

@@ -10,10 +10,8 @@ namespace VuonVietXuStore
 {
     public partial class UC_ThemPhieuNhap : UserControl
     {
-        // Khởi tạo kết nối CSDL
         SqlConnection connect = new SqlConnection(ConfigurationManager.ConnectionStrings["VuonVietXuStore"].ConnectionString);
 
-        // Biến phục vụ Animation
         private Timer slideTimer = new Timer();
         private int targetTop;
 
@@ -21,21 +19,15 @@ namespace VuonVietXuStore
         {
             InitializeComponent();
 
-            // Kích hoạt DoubleBuffer để chống nháy màn hình khi chạy hiệu ứng lướt
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
             this.UpdateStyles();
 
-            // Cấu hình giao diện và cột dữ liệu
             SetupDataGridView();
             SetupModernEffects();
         }
 
-        // ======================================================================
-        // 1. CẤU HÌNH BẢNG CHI TIẾT (ĐỊNH DẠNG ĐẸP)
-        // ======================================================================
         private void SetupDataGridView()
         {
-            // Tự động tạo 3 cột cho bảng chi tiết nếu chưa có
             if (dgvChiTiet.Columns.Count == 0)
             {
                 dgvChiTiet.Columns.Add("colTenSP", "Tên sản phẩm");
@@ -47,24 +39,17 @@ namespace VuonVietXuStore
             dgvChiTiet.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvChiTiet.ReadOnly = true;
 
-            // Định dạng cột Giá nhập thành tiền tệ (VD: 50,000)
             dgvChiTiet.Columns[2].DefaultCellStyle.Format = "N0";
         }
 
-        // ======================================================================
-        // 2. HIỆU ỨNG GIAO DIỆN & HOVER CHUỘT
-        // ======================================================================
         private void SetupModernEffects()
         {
-            // Hover: Nút Thêm vào danh sách (Xanh lá)
             btnThem.MouseEnter += (s, e) => btnThem.BackColor = Color.FromArgb(27, 120, 67);
             btnThem.MouseLeave += (s, e) => btnThem.BackColor = Color.FromArgb(20, 90, 50);
 
-            // Hover: Nút Lưu lại (Xanh lá)
             btnLuu.MouseEnter += (s, e) => btnLuu.BackColor = Color.FromArgb(27, 120, 67);
             btnLuu.MouseLeave += (s, e) => btnLuu.BackColor = Color.FromArgb(20, 90, 50);
 
-            // Hover: Nút Hủy bỏ (Đổi sang nền đỏ nhạt cực xịn)
             btnHuy.MouseEnter += (s, e) => {
                 btnHuy.BackColor = Color.FromArgb(255, 235, 235);
                 btnHuy.ForeColor = Color.FromArgb(220, 53, 69);
@@ -74,34 +59,29 @@ namespace VuonVietXuStore
                 btnHuy.ForeColor = Color.FromArgb(20, 90, 50);
             };
 
-            // Animation: Bảng lưới lướt từ dưới lên khi mở trang
             this.Load += (s, e) =>
             {
                 targetTop = panelGrid.Top;
-                panelGrid.Top += 40; // Kéo bảng xuống 40px
+                panelGrid.Top += 40; 
 
                 slideTimer.Interval = 15;
                 slideTimer.Tick += (ss, ee) =>
                 {
                     if (panelGrid.Top > targetTop)
-                        panelGrid.Top -= 4; // Trượt lên mượt mà
+                        panelGrid.Top -= 4; 
                     else
                         slideTimer.Stop();
                 };
                 slideTimer.Start();
             };
 
-            // Liên kết sự kiện nút bấm vào logic
             btnThem.Click += btnAddSP_Click;
             btnLuu.Click += btnSave_Click;
             btnHuy.Click += btnCancel_Click;
         }
 
-        // ======================================================================
-        // 3. LOGIC XỬ LÝ DỮ LIỆU
-        // ======================================================================
 
-        // Thêm sản phẩm vào danh sách tạm (Grid)
+        // Thêm sản phẩm 
         private void btnAddSP_Click(object sender, EventArgs e)
         {
             // Kiểm tra nhập liệu
@@ -121,7 +101,6 @@ namespace VuonVietXuStore
                 txtGiaNhap.Text.Trim()
             );
 
-            // Tự động cuộn xuống dòng cuối cùng để nhìn cho rõ
             dgvChiTiet.FirstDisplayedScrollingRowIndex = dgvChiTiet.RowCount - 1;
 
             // Dọn dẹp ô nhập liệu để nhập món mới, giữ lại Nhà cung cấp & Ngày
@@ -214,7 +193,7 @@ namespace VuonVietXuStore
             NavigateBack();
         }
 
-        // Hàm hỗ trợ quay lại trang Quản lý Nhập Hàng
+        // Quay lại trang Quản lý Nhập Hàng
         private void NavigateBack()
         {
             UC_NhapHang uc = new UC_NhapHang();

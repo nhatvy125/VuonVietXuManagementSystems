@@ -51,9 +51,8 @@ namespace VuonVietXuStore
             cartTable.Columns.Add("Thành Tiền", typeof(decimal));
 
             dgvChiTiet.DataSource = cartTable;
-            dgvChiTiet.Columns["MaSP"].Visible = false; // Ẩn cột mã sản phẩm
+            dgvChiTiet.Columns["MaSP"].Visible = false; 
             
-            // Format cột tiền tệ
             dgvChiTiet.Columns["Đơn Giá"].DefaultCellStyle.Format = "N0";
             dgvChiTiet.Columns["Thành Tiền"].DefaultCellStyle.Format = "N0";
         }
@@ -252,7 +251,7 @@ namespace VuonVietXuStore
                         }
 
                         transaction.Commit();
-                        MessageBox.Show("Đã tạo đơn hàng thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
                         QuayVeTrangDonHang();
                     }
                     catch (Exception ex)

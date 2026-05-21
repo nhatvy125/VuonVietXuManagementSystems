@@ -22,7 +22,6 @@ namespace VuonVietXuStore
         {
             this.BackColor = Color.FromArgb(242, 247, 244);
 
-            // Style dgvDonHang
             dgvDonHang.AllowUserToAddRows = false;
             dgvDonHang.BackgroundColor = Color.White;
             dgvDonHang.BorderStyle = BorderStyle.None;
@@ -45,7 +44,6 @@ namespace VuonVietXuStore
             dgvDonHang.DefaultCellStyle.SelectionBackColor = Color.FromArgb(235, 247, 238);
             dgvDonHang.DefaultCellStyle.SelectionForeColor = Color.FromArgb(18, 78, 44);
 
-            // Style dgvChiTietDH
             dgvChiTietDH.AllowUserToAddRows = false;
             dgvChiTietDH.BackgroundColor = Color.White;
             dgvChiTietDH.BorderStyle = BorderStyle.None;
@@ -68,12 +66,10 @@ namespace VuonVietXuStore
             dgvChiTietDH.DefaultCellStyle.SelectionBackColor = Color.FromArgb(235, 243, 250);
             dgvChiTietDH.DefaultCellStyle.SelectionForeColor = Color.FromArgb(44, 62, 80);
 
-            // Combobox items
             cbTrangThai.Items.Clear();
             cbTrangThai.Items.AddRange(new object[] { "Chờ xử lý", "Đang giao", "Hoàn thành", "Đã hủy" });
             cbTrangThai.Font = new Font("Segoe UI", 9.5F);
 
-            // Update status button
             btnCapNhatTrangThai.BackColor = Color.FromArgb(18, 78, 44);
             btnCapNhatTrangThai.ForeColor = Color.White;
             btnCapNhatTrangThai.FlatStyle = FlatStyle.Flat;
@@ -81,7 +77,6 @@ namespace VuonVietXuStore
             btnCapNhatTrangThai.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnCapNhatTrangThai.Cursor = Cursors.Hand;
 
-            // Search button styling
             btnSearch.BackColor = Color.FromArgb(18, 78, 44);
             btnSearch.ForeColor = Color.White;
             btnSearch.FlatStyle = FlatStyle.Flat;
@@ -89,7 +84,6 @@ namespace VuonVietXuStore
             btnSearch.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSearch.Cursor = Cursors.Hand;
 
-            // Search-by dropdown
             cboSearchBy.Items.Clear();
             cboSearchBy.Items.AddRange(new object[] {
                 "Mã đơn hàng",
@@ -99,7 +93,6 @@ namespace VuonVietXuStore
             cboSearchBy.SelectedIndex = 0;
             cboSearchBy.SelectedIndexChanged += (s, e) => LoadDataDonHang();
 
-            // Sort dropdown items
             cboSort.Items.Clear();
             cboSort.Items.AddRange(new object[] { 
                 "Ngày đặt mới nhất", 
@@ -109,13 +102,12 @@ namespace VuonVietXuStore
             });
             cboSort.SelectedIndex = 0;
 
-            // Register events
             cboSort.SelectedIndexChanged += (s, e) => LoadDataDonHang();
             btnSearch.Click += (s, e) => LoadDataDonHang();
             txtSearch.KeyDown += (s, e) => {
                 if (e.KeyCode == Keys.Enter)
                 {
-                    e.SuppressKeyPress = true; // Prevents beep
+                    e.SuppressKeyPress = true; 
                     LoadDataDonHang();
                 }
             };
@@ -126,13 +118,13 @@ namespace VuonVietXuStore
             try
             {
                 string searchVal = txtSearch.Text.Trim();
-                string sortOrder = "dh.NgayDatHang DESC, dh.MaDH DESC"; // Default
+                string sortOrder = "dh.NgayDatHang DESC, dh.MaDH DESC"; 
                 
-                if (cboSort.SelectedIndex == 1) // NgayDatHang ASC
+                if (cboSort.SelectedIndex == 1) 
                     sortOrder = "dh.NgayDatHang ASC, dh.MaDH ASC";
-                else if (cboSort.SelectedIndex == 2) // TongTien DESC
+                else if (cboSort.SelectedIndex == 2) 
                     sortOrder = "dh.TongTien DESC";
-                else if (cboSort.SelectedIndex == 3) // TongTien ASC
+                else if (cboSort.SelectedIndex == 3) 
                     sortOrder = "dh.TongTien ASC";
 
                 string searchCol;
@@ -169,7 +161,6 @@ namespace VuonVietXuStore
                     }
                 }
 
-                // Format columns
                 if (dgvDonHang.Columns["Tổng Tiền"] != null)
                 {
                     dgvDonHang.Columns["Tổng Tiền"].DefaultCellStyle.Format = "N0";
@@ -192,7 +183,6 @@ namespace VuonVietXuStore
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            // Keeping real-time filter capability
             LoadDataDonHang();
         }
 
@@ -248,7 +238,6 @@ namespace VuonVietXuStore
                     }
                 }
 
-                // Format columns
                 if (dgvChiTietDH.Columns["Đơn Giá"] != null)
                 {
                     dgvChiTietDH.Columns["Đơn Giá"].DefaultCellStyle.Format = "N0";
@@ -293,7 +282,7 @@ namespace VuonVietXuStore
                         cmd.ExecuteNonQuery();
                     }
                 }
-                MessageBox.Show("Cập nhật trạng thái thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 LoadDataDonHang();
             }
             catch (Exception ex)

@@ -3,6 +3,7 @@ using System;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace VuonVietXuStore
 {
@@ -30,8 +31,8 @@ namespace VuonVietXuStore
 
             lblUsername.Text = displayName;
             lblRole.Text = roleName;
+            LoadAvatar();
 
-            // Mặc định vừa mở phần mềm lên là nạp ngay trang Welcome và active nút Trang Chủ
             LoadUserControl(new UC_Welcomeback());
             SetActiveButton(btnTrangChu);
             this.FormClosed += FormHome_FormClosed;
@@ -53,7 +54,7 @@ namespace VuonVietXuStore
             {
                 connect.Open();
 
-                // 1. Try loading user-specific permissions first
+                // Ưu tiên quyền
                 SqlCommand cmd = new SqlCommand(
                     "SELECT PermissionCode FROM UserPermissions WHERE Username=@username",
                     connect);
@@ -67,7 +68,7 @@ namespace VuonVietXuStore
                     }
                 }
 
-                // 2. Fallback to role permissions if no user-specific permissions found
+                // Không có quyền thì lấy theo chức vụ
                 if (permissions.Count == 0)
                 {
                     SqlCommand cmdRole = new SqlCommand(
@@ -126,10 +127,7 @@ namespace VuonVietXuStore
                 btnSettings
             };
 
-            // Lấy vị trí bắt đầu từ nút đầu tiên
             int top = btnTrangChu.Top;
-
-            // Khoảng cách giữa các nút
             int spacing = 4;
 
             Guna2Button lastVisibleButton = null;
@@ -146,9 +144,6 @@ namespace VuonVietXuStore
                 }
             }
 
-            // =========================
-            // Đẩy phần đăng xuất lên
-            // =========================
             if (lastVisibleButton != null)
             {
                 panelDivider2.Top = lastVisibleButton.Bottom + 10;
@@ -156,25 +151,55 @@ namespace VuonVietXuStore
             }
         }
 
+        private void LoadAvatar()
+        {
+            try
+            {
+                connect.Open();
 
+                string query = "SELECT AvatarPath FROM users WHERE username = @username";
 
-        // Hàm lõi để xóa và nạp UserControl mới vào vùng trống bên phải (panel2)
+                SqlCommand cmd = new SqlCommand(query, connect);
+                cmd.Parameters.AddWithValue("@username", loginUsername);
+
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    string imagePath = result.ToString();
+
+                    if (File.Exists(imagePath))
+                    {
+                        pictureBox1.Image = Image.FromFile(imagePath);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi load avatar: " + ex.Message);
+            }
+            finally
+            {
+                if (connect.State == System.Data.ConnectionState.Open)
+                {
+                    connect.Close();
+                }
+            }
+        }
+
         private void LoadUserControl(UserControl uc)
         {
             panel2.Controls.Clear();
             uc.Dock = DockStyle.Fill;
 
-            // Xử lý để giữ background của panel2 không bị đè mất (nếu UserControl có màu Transparent)
             uc.BackColor = Color.Transparent;
 
             panel2.Controls.Add(uc);
             uc.BringToFront();
         }
 
-        // Hàm đổi hiệu ứng màu sắc để nhận biết nút đang được chọn
         private void SetActiveButton(Guna2Button activeButton)
         {
-            // Reset toàn bộ nút về trong suốt
             foreach (Control ctrl in panel1.Controls)
             {
                 if (ctrl is Guna2Button btn)
@@ -183,7 +208,6 @@ namespace VuonVietXuStore
                     btn.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
                 }
             }
-            // Tô màu nền highlight cho nút đang chọn
             activeButton.FillColor = Color.FromArgb(40, 255, 255, 255);
             activeButton.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
         }
@@ -252,9 +276,6 @@ namespace VuonVietXuStore
 
         private void label1_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
                 isLoggingOut = true;
                 if (loginForm != null)
                 {
@@ -266,7 +287,6 @@ namespace VuonVietXuStore
                     login.Show();
                 }
                 this.Close();
-            }
         }
 
         private void FormHome_FormClosed(object sender, FormClosedEventArgs e)
@@ -284,7 +304,52 @@ namespace VuonVietXuStore
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            OpenFileDialog ofd = new OpenFileDialog();
 
+            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+
+            ofd.InitialDirectory = @"C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\Resources";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string selectedImage = ofd.FileName;
+
+                    if (connect.State == System.Data.ConnectionState.Open)
+                    {
+                        connect.Close();
+                    }
+
+                    connect.Open();
+
+                    string query = "UPDATE users SET AvatarPath = @path WHERE username = @username";
+
+                    SqlCommand cmd = new SqlCommand(query, connect);
+
+                    cmd.Parameters.AddWithValue("@path", selectedImage);
+                    cmd.Parameters.AddWithValue("@username", loginUsername);
+
+                    cmd.ExecuteNonQuery();
+
+                    connect.Close();
+
+                    pictureBox1.Image = Image.FromFile(selectedImage);
+
+                    MessageBox.Show("Đổi avatar thành công!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi đổi avatar: " + ex.Message);
+                }
+                finally
+                {
+                    if (connect.State == System.Data.ConnectionState.Open)
+                    {
+                        connect.Close();
+                    }
+                }
+            }
         }
     }
 }

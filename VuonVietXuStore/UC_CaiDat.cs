@@ -19,14 +19,12 @@ namespace VuonVietXuStore
             LoadRolesToComboBoxColumn();
             LoadUsersAndPermissions();
 
-            // Wire up event handlers for instant checkbox toggling
             dgvUsers.CellValueChanged += dgvUsers_CellValueChanged;
             dgvUsers.CurrentCellDirtyStateChanged += dgvUsers_CurrentCellDirtyStateChanged;
         }
 
         private void ApplyCustomStyles()
         {
-            // Custom styles for DataGridView to match the theme (similar to UC_SanPham)
             DataGridViewCellStyle headerStyle = new DataGridViewCellStyle();
             headerStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             headerStyle.BackColor = Color.FromArgb(18, 78, 44);
@@ -47,7 +45,6 @@ namespace VuonVietXuStore
             cellStyle.WrapMode = DataGridViewTriState.False;
             dgvUsers.DefaultCellStyle = cellStyle;
 
-            // Flat look for save & add buttons
             btnSave.BackColor = Color.FromArgb(18, 78, 44);
             btnSave.ForeColor = Color.White;
             btnSave.FlatStyle = FlatStyle.Flat;
@@ -69,10 +66,7 @@ namespace VuonVietXuStore
             dgvUsers.AutoGenerateColumns = false;
             dgvUsers.Columns.Clear();
 
-            // Hidden Id
             dgvUsers.Columns.Add(new DataGridViewTextBoxColumn { Name = "id", DataPropertyName = "id", Visible = false });
-
-            // Text columns (employee fields)
             dgvUsers.Columns.Add(new DataGridViewTextBoxColumn { Name = "MaNV", HeaderText = "Mã NV", DataPropertyName = "MaNV", Width = 80 });
             dgvUsers.Columns.Add(new DataGridViewTextBoxColumn { Name = "TenNV", HeaderText = "Tên NV", DataPropertyName = "TenNV", Width = 130 });
             dgvUsers.Columns.Add(new DataGridViewTextBoxColumn { Name = "SDT", HeaderText = "SĐT", DataPropertyName = "SDT", Width = 100 });
@@ -80,7 +74,6 @@ namespace VuonVietXuStore
             dgvUsers.Columns.Add(new DataGridViewTextBoxColumn { Name = "Email", HeaderText = "Email", DataPropertyName = "Email", Width = 160 });
             dgvUsers.Columns.Add(new DataGridViewTextBoxColumn { Name = "username", HeaderText = "Tên Đăng Nhập", DataPropertyName = "username", Width = 120, ReadOnly = true });
 
-            // Role combobox column
             var cboCol = new DataGridViewComboBoxColumn
             {
                 Name = "RoleId",
@@ -90,8 +83,6 @@ namespace VuonVietXuStore
                 DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox
             };
             dgvUsers.Columns.Add(cboCol);
-
-            // Permission checkbox columns
             dgvUsers.Columns.Add(new DataGridViewCheckBoxColumn { Name = "TOAN_QUYEN", HeaderText = "Toàn Quyền", Width = 90 });
             dgvUsers.Columns.Add(new DataGridViewCheckBoxColumn { Name = "SP", HeaderText = "SP", Width = 45 });
             dgvUsers.Columns.Add(new DataGridViewCheckBoxColumn { Name = "DON_HANG", HeaderText = "Đơn Hàng", Width = 80 });
@@ -131,7 +122,7 @@ namespace VuonVietXuStore
 
         private void LoadUsersAndPermissions()
         {
-            // Temporarily unhook event to prevent firing during initial loading
+            // Tắt event khi load dữ liệu
             dgvUsers.CellValueChanged -= dgvUsers_CellValueChanged;
 
             try
@@ -148,7 +139,6 @@ namespace VuonVietXuStore
 
                 dgvUsers.DataSource = dt;
 
-                // Load permissions for each user row
                 foreach (DataGridViewRow row in dgvUsers.Rows)
                 {
                     if (row.IsNewRow) continue;
@@ -189,7 +179,7 @@ namespace VuonVietXuStore
                 using (SqlConnection connect = new SqlConnection(connectionString))
                 {
                     connect.Open();
-                    // 1. Try UserPermissions table
+                    // Lấy quyền của user
                     string q1 = "SELECT PermissionCode FROM UserPermissions WHERE Username = @username";
                     using (SqlCommand cmd = new SqlCommand(q1, connect))
                     {
@@ -203,7 +193,7 @@ namespace VuonVietXuStore
                         }
                     }
 
-                    // 2. Fallback to RolePermissions table
+                    // Nếu không có quyền thì lấy theo role
                     if (list.Count == 0 && roleId > 0)
                     {
                         string q2 = "SELECT PermissionCode FROM RolePermissions WHERE RoleId = @RoleId";
@@ -300,7 +290,7 @@ namespace VuonVietXuStore
                 }
                 else if (colName == "RoleId")
                 {
-                    // If position is changed, apply default permissions of that role as suggestion
+                    // Cập nhật quyền mặc định nếu đổi chức vụ
                     object roleVal = row.Cells["RoleId"].Value;
                     int roleId = roleVal != DBNull.Value && roleVal != null ? Convert.ToInt32(roleVal) : 0;
                     if (roleId > 0)
@@ -354,7 +344,7 @@ namespace VuonVietXuStore
                         object roleVal = row.Cells["RoleId"].Value;
                         int roleId = roleVal != DBNull.Value && roleVal != null ? Convert.ToInt32(roleVal) : 0;
 
-                        // 1. Update basic employee info and role in users table
+                        // Cập nhật thông tin nhân viên
                         string queryUpdateUser = @"
                             UPDATE users 
                             SET MaNV = @MaNV, TenNV = @TenNV, SDT = @SDT, DiaChi = @DiaChi, Email = @Email, RoleId = @RoleId 
@@ -371,8 +361,7 @@ namespace VuonVietXuStore
                             cmd.ExecuteNonQuery();
                         }
 
-                        // 2. Save customized user-specific permissions
-                        // First delete old custom permissions
+                        // Lưu quyền mới và xóa quyền cũ
                         string queryDeletePerms = "DELETE FROM UserPermissions WHERE Username = @username";
                         using (SqlCommand cmd = new SqlCommand(queryDeletePerms, connect))
                         {
@@ -380,7 +369,6 @@ namespace VuonVietXuStore
                             cmd.ExecuteNonQuery();
                         }
 
-                        // Then insert the ones currently selected in the checkboxes
                         string[] permissionCodes = { "SP", "DON_HANG", "NCC", "KHACH", "NHAP", "BAN", "KHO", "BAO_CAO", "CAI_DAT" };
                         foreach (string code in permissionCodes)
                         {
@@ -399,8 +387,8 @@ namespace VuonVietXuStore
                     }
                 }
 
-                MessageBox.Show("Cập nhật thông tin nhân viên và phân quyền thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadUsersAndPermissions(); // Reload to refresh grid
+                
+                LoadUsersAndPermissions();
             }
             catch (Exception ex)
             {
@@ -426,9 +414,9 @@ namespace VuonVietXuStore
                                 cmd.ExecuteNonQuery();
                             }
                         }
-                        MessageBox.Show("Thêm chức vụ mới thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
 
-                        // Reload Roles in Grid ComboBox column
+                        //  Load lại danh sách
                         LoadRolesToComboBoxColumn();
                     }
                     catch (Exception ex)
@@ -469,7 +457,7 @@ namespace VuonVietXuStore
                         {
                             connect.Open();
 
-                            // Check if username already exists
+                            // Kiểm tra trùng username
                             string checkQuery = "SELECT COUNT(*) FROM users WHERE username = @username";
                             using (SqlCommand checkCmd = new SqlCommand(checkQuery, connect))
                             {
@@ -482,7 +470,7 @@ namespace VuonVietXuStore
                                 }
                             }
 
-                            // Auto-generate employee code (MaNV)
+                            // Tạo ID nhân viên
                             string maNV = "NV001";
                             string getMaQuery = "SELECT TOP 1 MaNV FROM users WHERE MaNV LIKE 'NV%' ORDER BY MaNV DESC";
                             using (SqlCommand getMaCmd = new SqlCommand(getMaQuery, connect))
@@ -498,7 +486,7 @@ namespace VuonVietXuStore
                                 }
                             }
 
-                            // Insert into users
+                            // Thêm nhân viên
                             string query = @"
                                 INSERT INTO users (username, password, RoleId, MaNV, TenNV, SDT, DiaChi, Email)
                                 VALUES (@username, @password, @RoleId, @MaNV, @TenNV, @SDT, @DiaChi, @Email)";
@@ -515,7 +503,7 @@ namespace VuonVietXuStore
                                 cmd.ExecuteNonQuery();
                             }
 
-                            // Copy default permissions of selected role to UserPermissions
+                            // Quyền mặc định theo chức vụ
                             string copyPermQuery = @"
                                 INSERT INTO UserPermissions (Username, PermissionCode)
                                 SELECT @username, PermissionCode 
@@ -529,7 +517,7 @@ namespace VuonVietXuStore
                             }
                         }
 
-                        MessageBox.Show("Thêm nhân viên mới thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                       
                         LoadUsersAndPermissions();
                     }
                     catch (Exception ex)
@@ -541,7 +529,7 @@ namespace VuonVietXuStore
         }
     }
 
-    // Modern green theme custom modal dialog for adding new position
+    // Thêm chức vụ
     public class FormAddRole : Form
     {
         public string RoleName { get; private set; }
@@ -631,7 +619,7 @@ namespace VuonVietXuStore
         }
     }
 
-    // Beautiful custom modal dialog for adding a new employee
+    // Thêm nhân viên
     public class FormAddUser : Form
     {
         public string TenNV { get; private set; }
