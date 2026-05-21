@@ -1,4 +1,4 @@
-namespace VuonVietXuStore
+﻿namespace VuonVietXuStore
 {
     partial class UC_NhapHang
     {
@@ -36,8 +36,6 @@ namespace VuonVietXuStore
             this.panelSearch = new System.Windows.Forms.Panel();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearchIcon = new System.Windows.Forms.Label();
-            this.cboSearchBy = new System.Windows.Forms.ComboBox();
-            this.cboSort = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -73,8 +71,6 @@ namespace VuonVietXuStore
             // 
             this.panelAction.BackColor = System.Drawing.Color.Transparent;
             this.panelAction.Controls.Add(this.panelSearch);
-            this.panelAction.Controls.Add(this.cboSearchBy);
-            this.panelAction.Controls.Add(this.cboSort);
             this.panelAction.Controls.Add(this.btnAdd);
             this.panelAction.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelAction.Location = new System.Drawing.Point(0, 70);
@@ -111,24 +107,6 @@ namespace VuonVietXuStore
             this.lblSearchIcon.Name = "lblSearchIcon";
             this.lblSearchIcon.Size = new System.Drawing.Size(26, 23);
             this.lblSearchIcon.Text = "🔍";
-            // 
-            // === cboSearchBy ===
-            // 
-            this.cboSearchBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSearchBy.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.cboSearchBy.Location = new System.Drawing.Point(442, 12);
-            this.cboSearchBy.Name = "cboSearchBy";
-            this.cboSearchBy.Size = new System.Drawing.Size(160, 38);
-            this.cboSearchBy.TabIndex = 11;
-            // 
-            // === cboSort ===
-            // 
-            this.cboSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSort.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.cboSort.Location = new System.Drawing.Point(610, 12);
-            this.cboSort.Name = "cboSort";
-            this.cboSort.Size = new System.Drawing.Size(180, 38);
-            this.cboSort.TabIndex = 10;
 
             // 
             // === btnAdd (Nút thêm mới thiết kế phẳng) ===
@@ -235,8 +213,6 @@ namespace VuonVietXuStore
         private System.Windows.Forms.Panel panelSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblSearchIcon;
-        private System.Windows.Forms.ComboBox cboSearchBy;
-        private System.Windows.Forms.ComboBox cboSort;
         private System.Windows.Forms.Panel panelContent;
     }
 }

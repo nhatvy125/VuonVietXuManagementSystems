@@ -188,6 +188,7 @@
             this.btnBanHang.Text = "🛒  Bán hàng";
             this.btnBanHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBanHang.UseVisualStyleBackColor = false;
+            this.btnBanHang.Click += new System.EventHandler(this.btnBanHang_Click);
             // 
             // btnKho
             // 
@@ -206,6 +207,7 @@
             this.btnKho.Text = "🏪  Kho hàng";
             this.btnKho.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnKho.UseVisualStyleBackColor = false;
+            this.btnKho.Click += new System.EventHandler(this.btnKho_Click);
             // 
             // button1
             // 
@@ -254,7 +256,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1028, 725);
             this.panel2.TabIndex = 0;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+
             // 
             // NhapHang
             // 
@@ -289,6 +291,6 @@
         private System.Windows.Forms.Panel panelDivider2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private UC_NhapHang UC_NhapHang1;
+        // UC_NhapHang1 đã xóa (CS0169 - field không dùng)
     }
 }

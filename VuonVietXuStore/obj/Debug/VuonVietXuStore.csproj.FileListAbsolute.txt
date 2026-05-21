@@ -1,6 +1,7 @@
 D:\VuonVietXuStore\VuonVietXuStore\bin\Debug\VuonVietXuStore.exe.config
 D:\VuonVietXuStore\VuonVietXuStore\bin\Debug\VuonVietXuStore.exe
 D:\VuonVietXuStore\VuonVietXuStore\bin\Debug\VuonVietXuStore.pdb
+D:\VuonVietXuStore\VuonVietXuStore\bin\Debug\Guna.UI2.dll
 D:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonVietXuStore.csproj.AssemblyReference.cache
 D:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonVietXuStore.Form1.resources
 D:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonVietXuStore.FormHome.resources
@@ -22,38 +23,6 @@ D:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_SuaNCC.resources
 D:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_SuaSP.resources
 D:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonVietXuStore.csproj.GenerateResource.cache
 D:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonVietXuStore.csproj.CoreCompileInputs.cache
+D:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonViet.04FC3C6D.Up2Date
 D:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonVietXuStore.exe
 D:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonVietXuStore.pdb
-D:\VuonVietXuStore\VuonVietXuStore\bin\Debug\Guna.UI2.dll
-D:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonViet.04FC3C6D.Up2Date
-d:\VuonVietXuStore\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_DonHang.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\bin\Debug\VuonVietXuStore.exe.config
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\bin\Debug\VuonVietXuStore.exe
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\bin\Debug\VuonVietXuStore.pdb
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\bin\Debug\Guna.UI2.dll
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.csproj.AssemblyReference.cache
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.Form1.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.FormHome.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.NhapHang.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.Properties.Resources.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_NhapHang.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_ThemKhachHang.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_ThemNCC.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_ThemPhieuNhap.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_ThemSP.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_Welcomeback.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_BaoCao.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_CTPN.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_DonHang.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_KhachHang.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_NhaCungCap.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_SanPham.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_SuaKhachHang.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_SuaNCC.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_SuaSP.resources
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.csproj.GenerateResource.cache
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.csproj.CoreCompileInputs.cache
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonViet.04FC3C6D.Up2Date
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.exe
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.pdb
-C:\Users\Tram Nguyen\Desktop\VuonVietXuManagementSystems\VuonVietXuStore\obj\Debug\VuonVietXuStore.UC_CaiDat.resources
