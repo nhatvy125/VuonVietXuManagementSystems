@@ -66,7 +66,11 @@ namespace VuonVietXuStore
                 try
                 {
                     connect.Open();
-                    string selectData = "SELECT * FROM users WHERE username = @usern AND password = @pass";
+                    string selectData = @"
+                        SELECT u.username, u.TenNV, u.RoleId, r.RoleName
+                        FROM Users u
+                        JOIN Roles r ON u.RoleId = r.RoleId
+                        WHERE u.username = @usern AND u.password = @pass";
 
                     using (SqlCommand cmd = new SqlCommand(selectData, connect))
                     {
@@ -79,7 +83,12 @@ namespace VuonVietXuStore
 
                         if (table.Rows.Count > 0)
                         {
-                            FormHome home = new FormHome(this);
+                            int roleId = Convert.ToInt32(table.Rows[0]["RoleId"]);
+                            string loginUsername = table.Rows[0]["username"].ToString();
+                            string displayName = table.Rows[0]["TenNV"].ToString();
+                            string roleName = table.Rows[0]["RoleName"].ToString();
+
+                            FormHome home = new FormHome(this, roleId, loginUsername, displayName, roleName);
                             home.Show();
                             this.Hide();
                         }
@@ -144,4 +153,4 @@ namespace VuonVietXuStore
         private void lblTagline_Click(object sender, EventArgs e) { }
         private void label1_Click(object sender, EventArgs e) { }
     }
-}
+}

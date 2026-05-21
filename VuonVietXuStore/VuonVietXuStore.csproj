@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -73,6 +73,9 @@
       <DependentUpon>NhapHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="FormPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UC-NhapHang.cs">
       <SubType>UserControl</SubType>
@@ -115,6 +118,12 @@
     </Compile>
     <Compile Include="UC_BaoCao.Designer.cs">
       <DependentUpon>UC_BaoCao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_CaiDat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_CaiDat.Designer.cs">
+      <DependentUpon>UC_CaiDat.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_CTPN.cs">
       <SubType>UserControl</SubType>
@@ -203,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_BaoCao.resx">
       <DependentUpon>UC_BaoCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_CaiDat.resx">
+      <DependentUpon>UC_CaiDat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_CTPN.resx">
       <DependentUpon>UC_CTPN.cs</DependentUpon>

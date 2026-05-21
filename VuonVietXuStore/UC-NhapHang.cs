@@ -228,7 +228,12 @@ namespace VuonVietXuStore
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            LoadUC(new UC_ThemPhieuNhap());
+            UC_ThemPhieuNhap uc = new UC_ThemPhieuNhap();
+            FormPopup popup = new FormPopup(uc, "Thêm Phiếu Nhập Hàng Mới");
+            if (popup.ShowDialog() == DialogResult.OK)
+            {
+                LoadData();
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -241,8 +246,13 @@ namespace VuonVietXuStore
 
             int maPN = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value);
 
-            // Chuyển hướng sang màn hình Chi tiết phiếu nhập
-            LoadUC(new UC_CTPN(maPN));
+            // Chuyển hướng sang màn hình Chi tiết phiếu nhập dạng popup
+            UC_CTPN uc = new UC_CTPN(maPN);
+            FormPopup popup = new FormPopup(uc, $"Chi Tiết Phiếu Nhập #{maPN}");
+            if (popup.ShowDialog() == DialogResult.OK)
+            {
+                LoadData();
+            }
         }
     }
 }

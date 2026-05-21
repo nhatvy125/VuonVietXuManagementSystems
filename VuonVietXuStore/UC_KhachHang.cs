@@ -220,12 +220,10 @@ namespace VuonVietXuStore
         private void btnAdd_Click(object sender, EventArgs e)
         {
             UC_ThemKhachHang uc = new UC_ThemKhachHang();
-            uc.Dock = DockStyle.Fill;
-            Panel panel = this.Parent as Panel;
-            if (panel != null)
+            FormPopup popup = new FormPopup(uc, "Thêm Khách Hàng Mới");
+            if (popup.ShowDialog() == DialogResult.OK)
             {
-                panel.Controls.Clear();
-                panel.Controls.Add(uc);
+                LoadData();
             }
         }
 
@@ -248,12 +246,10 @@ namespace VuonVietXuStore
                 row.Cells["DiaChiKH"].Value.ToString()
             );
 
-            uc.Dock = DockStyle.Fill;
-            Panel panel = this.Parent as Panel;
-            if (panel != null)
+            FormPopup popup = new FormPopup(uc, "Sửa Thông Tin Khách Hàng");
+            if (popup.ShowDialog() == DialogResult.OK)
             {
-                panel.Controls.Clear();
-                panel.Controls.Add(uc);
+                LoadData();
             }
         }
 
