@@ -28,6 +28,7 @@ namespace VuonVietXuStore
             this.btnBanHang = new Guna.UI2.WinForms.Guna2Button();
             this.btnKho = new Guna.UI2.WinForms.Guna2Button();
             this.button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
             this.panelDivider2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -51,12 +52,14 @@ namespace VuonVietXuStore
             this.panel1.Controls.Add(this.btnBanHang);
             this.panel1.Controls.Add(this.btnKho);
             this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnSettings);
             this.panel1.Controls.Add(this.panelDivider2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(251, 725);
+            this.panel1.Size = new System.Drawing.Size(188, 589);
             this.panel1.TabIndex = 1;
             // 
             // btnTrangChu
@@ -67,9 +70,10 @@ namespace VuonVietXuStore
             this.btnTrangChu.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnTrangChu.ForeColor = System.Drawing.Color.White;
             this.btnTrangChu.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnTrangChu.Location = new System.Drawing.Point(11, 187);
+            this.btnTrangChu.Location = new System.Drawing.Point(8, 152);
+            this.btnTrangChu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnTrangChu.Name = "btnTrangChu";
-            this.btnTrangChu.Size = new System.Drawing.Size(229, 45);
+            this.btnTrangChu.Size = new System.Drawing.Size(172, 37);
             this.btnTrangChu.TabIndex = 0;
             this.btnTrangChu.Text = "🏠   Trang chủ";
             this.btnTrangChu.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -80,10 +84,11 @@ namespace VuonVietXuStore
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.ImageRotate = 0F;
-            this.pictureBox1.Location = new System.Drawing.Point(78, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(58, 20);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pictureBox1.Size = new System.Drawing.Size(82, 79);
+            this.pictureBox1.Size = new System.Drawing.Size(62, 64);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -93,9 +98,10 @@ namespace VuonVietXuStore
             // 
             this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(-3, 107);
+            this.lblUsername.Location = new System.Drawing.Point(-2, 87);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(251, 28);
+            this.lblUsername.Size = new System.Drawing.Size(188, 23);
             this.lblUsername.TabIndex = 2;
             this.lblUsername.Text = "Đàm Vĩnh Viễn";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -104,9 +110,10 @@ namespace VuonVietXuStore
             // 
             this.lblRole.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.lblRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
-            this.lblRole.Location = new System.Drawing.Point(-11, 134);
+            this.lblRole.Location = new System.Drawing.Point(-8, 109);
+            this.lblRole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(251, 23);
+            this.lblRole.Size = new System.Drawing.Size(188, 19);
             this.lblRole.TabIndex = 3;
             this.lblRole.Text = "Quản lý";
             this.lblRole.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -115,9 +122,10 @@ namespace VuonVietXuStore
             // panelDivider
             // 
             this.panelDivider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panelDivider.Location = new System.Drawing.Point(23, 169);
+            this.panelDivider.Location = new System.Drawing.Point(17, 137);
+            this.panelDivider.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelDivider.Name = "panelDivider";
-            this.panelDivider.Size = new System.Drawing.Size(206, 1);
+            this.panelDivider.Size = new System.Drawing.Size(154, 1);
             this.panelDivider.TabIndex = 4;
             // 
             // btnSanPham
@@ -128,9 +136,10 @@ namespace VuonVietXuStore
             this.btnSanPham.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSanPham.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(220)))));
             this.btnSanPham.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnSanPham.Location = new System.Drawing.Point(11, 237);
+            this.btnSanPham.Location = new System.Drawing.Point(8, 193);
+            this.btnSanPham.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSanPham.Name = "btnSanPham";
-            this.btnSanPham.Size = new System.Drawing.Size(229, 45);
+            this.btnSanPham.Size = new System.Drawing.Size(172, 37);
             this.btnSanPham.TabIndex = 5;
             this.btnSanPham.Text = "📦   Sản phẩm";
             this.btnSanPham.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -145,9 +154,10 @@ namespace VuonVietXuStore
             this.btnKH.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnKH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(220)))));
             this.btnKH.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnKH.Location = new System.Drawing.Point(11, 287);
+            this.btnKH.Location = new System.Drawing.Point(8, 233);
+            this.btnKH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnKH.Name = "btnKH";
-            this.btnKH.Size = new System.Drawing.Size(229, 45);
+            this.btnKH.Size = new System.Drawing.Size(172, 37);
             this.btnKH.TabIndex = 6;
             this.btnKH.Text = "👤   Khách hàng";
             this.btnKH.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -162,9 +172,10 @@ namespace VuonVietXuStore
             this.btnDonHang.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnDonHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(220)))));
             this.btnDonHang.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnDonHang.Location = new System.Drawing.Point(11, 337);
+            this.btnDonHang.Location = new System.Drawing.Point(8, 274);
+            this.btnDonHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDonHang.Name = "btnDonHang";
-            this.btnDonHang.Size = new System.Drawing.Size(229, 45);
+            this.btnDonHang.Size = new System.Drawing.Size(172, 37);
             this.btnDonHang.TabIndex = 7;
             this.btnDonHang.Text = "📄   Đơn hàng";
             this.btnDonHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -179,9 +190,10 @@ namespace VuonVietXuStore
             this.btnNCC.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnNCC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(220)))));
             this.btnNCC.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnNCC.Location = new System.Drawing.Point(11, 387);
+            this.btnNCC.Location = new System.Drawing.Point(8, 314);
+            this.btnNCC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNCC.Name = "btnNCC";
-            this.btnNCC.Size = new System.Drawing.Size(229, 45);
+            this.btnNCC.Size = new System.Drawing.Size(172, 37);
             this.btnNCC.TabIndex = 8;
             this.btnNCC.Text = "🏭   Nhà cung cấp";
             this.btnNCC.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -196,9 +208,10 @@ namespace VuonVietXuStore
             this.btnNhapHang.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnNhapHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(220)))));
             this.btnNhapHang.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnNhapHang.Location = new System.Drawing.Point(11, 437);
+            this.btnNhapHang.Location = new System.Drawing.Point(8, 355);
+            this.btnNhapHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNhapHang.Name = "btnNhapHang";
-            this.btnNhapHang.Size = new System.Drawing.Size(229, 45);
+            this.btnNhapHang.Size = new System.Drawing.Size(172, 37);
             this.btnNhapHang.TabIndex = 9;
             this.btnNhapHang.Text = "📥   Nhập hàng";
             this.btnNhapHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -213,9 +226,10 @@ namespace VuonVietXuStore
             this.btnBanHang.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnBanHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(220)))));
             this.btnBanHang.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnBanHang.Location = new System.Drawing.Point(11, 487);
+            this.btnBanHang.Location = new System.Drawing.Point(8, 396);
+            this.btnBanHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBanHang.Name = "btnBanHang";
-            this.btnBanHang.Size = new System.Drawing.Size(229, 45);
+            this.btnBanHang.Size = new System.Drawing.Size(172, 37);
             this.btnBanHang.TabIndex = 10;
             this.btnBanHang.Text = "🛒   Bán hàng";
             this.btnBanHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -230,9 +244,10 @@ namespace VuonVietXuStore
             this.btnKho.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnKho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(220)))));
             this.btnKho.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnKho.Location = new System.Drawing.Point(11, 538);
+            this.btnKho.Location = new System.Drawing.Point(8, 437);
+            this.btnKho.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnKho.Name = "btnKho";
-            this.btnKho.Size = new System.Drawing.Size(229, 45);
+            this.btnKho.Size = new System.Drawing.Size(172, 37);
             this.btnKho.TabIndex = 11;
             this.btnKho.Text = "🏪   Kho hàng";
             this.btnKho.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -247,21 +262,40 @@ namespace VuonVietXuStore
             this.button1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(220)))));
             this.button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button1.Location = new System.Drawing.Point(11, 588);
+            this.button1.Location = new System.Drawing.Point(8, 478);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(229, 45);
+            this.button1.Size = new System.Drawing.Size(172, 37);
             this.button1.TabIndex = 12;
             this.button1.Text = "📊   Báo cáo";
             this.button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.button1.TextOffset = new System.Drawing.Point(10, 0);
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnSettings
+            // 
+            this.btnSettings.BorderRadius = 8;
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSettings.FillColor = System.Drawing.Color.Transparent;
+            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(220)))));
+            this.btnSettings.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnSettings.Location = new System.Drawing.Point(8, 528);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(172, 37);
+            this.btnSettings.TabIndex = 12;
+            this.btnSettings.Text = "⚙️   Cài đặt";
+            this.btnSettings.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSettings.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
             // panelDivider2
             // 
             this.panelDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panelDivider2.Location = new System.Drawing.Point(23, 645);
+            this.panelDivider2.Location = new System.Drawing.Point(17, 574);
+            this.panelDivider2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelDivider2.Name = "panelDivider2";
-            this.panelDivider2.Size = new System.Drawing.Size(206, 1);
+            this.panelDivider2.Size = new System.Drawing.Size(154, 1);
             this.panelDivider2.TabIndex = 13;
             // 
             // label1
@@ -269,9 +303,10 @@ namespace VuonVietXuStore
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.label1.Location = new System.Drawing.Point(23, 661);
+            this.label1.Location = new System.Drawing.Point(17, 587);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 34);
+            this.label1.Size = new System.Drawing.Size(154, 28);
             this.label1.TabIndex = 14;
             this.label1.Text = "⏻   Đăng xuất";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -281,18 +316,20 @@ namespace VuonVietXuStore
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(247)))), ((int)(((byte)(244)))));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(251, 0);
+            this.panel2.Location = new System.Drawing.Point(188, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1006, 725);
+            this.panel2.Size = new System.Drawing.Size(755, 589);
             this.panel2.TabIndex = 0;
             // 
             // FormHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1257, 725);
+            this.ClientSize = new System.Drawing.Size(943, 589);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vườn Việt Xứ Store - Hệ thống quản lý chính";
@@ -320,6 +357,7 @@ namespace VuonVietXuStore
         private Guna.UI2.WinForms.Guna2Button btnBanHang;
         private Guna.UI2.WinForms.Guna2Button btnKho;
         private Guna.UI2.WinForms.Guna2Button button1;
+        private Guna.UI2.WinForms.Guna2Button btnSettings;
         private System.Windows.Forms.Panel panelDivider2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;

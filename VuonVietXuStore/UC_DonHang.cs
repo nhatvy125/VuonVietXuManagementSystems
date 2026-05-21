@@ -305,13 +305,10 @@ namespace VuonVietXuStore
         private void btnAdd_Click(object sender, EventArgs e)
         {
             UC_ThemDonHang uc = new UC_ThemDonHang();
-            uc.Dock = DockStyle.Fill;
-            Panel parentPanel = this.Parent as Panel;
-            if (parentPanel != null)
+            FormPopup popup = new FormPopup(uc, "Thêm Đơn Hàng Mới");
+            if (popup.ShowDialog() == DialogResult.OK)
             {
-                parentPanel.Controls.Clear();
-                parentPanel.Controls.Add(uc);
-                uc.BringToFront();
+                LoadDataDonHang();
             }
         }
     }

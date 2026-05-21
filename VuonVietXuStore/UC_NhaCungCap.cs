@@ -200,14 +200,10 @@ namespace VuonVietXuStore
         private void btnAdd_Click(object sender, EventArgs e)
         {
             UC_ThemNCC uc = new UC_ThemNCC();
-            uc.Dock = DockStyle.Fill;
-
-            Panel panel = this.Parent as Panel;
-
-            if (panel != null)
+            FormPopup popup = new FormPopup(uc, "Thêm Nhà Cung Cấp Mới");
+            if (popup.ShowDialog() == DialogResult.OK)
             {
-                panel.Controls.Clear();
-                panel.Controls.Add(uc);
+                LoadData();
             }
         }
 
@@ -233,14 +229,10 @@ namespace VuonVietXuStore
                 row.Cells["QuocGia"].Value.ToString()
             );
 
-            uc.Dock = DockStyle.Fill;
-
-            Panel panel = this.Parent as Panel;
-
-            if (panel != null)
+            FormPopup popup = new FormPopup(uc, "Sửa Thông Tin Nhà Cung Cấp");
+            if (popup.ShowDialog() == DialogResult.OK)
             {
-                panel.Controls.Clear();
-                panel.Controls.Add(uc);
+                LoadData();
             }
         }
 

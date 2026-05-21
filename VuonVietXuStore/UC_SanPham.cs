@@ -340,14 +340,10 @@ DROP TABLE #RealNamesSP;
         private void btnThem_Click(object sender, EventArgs e)
         {
             UC_ThemSP uc = new UC_ThemSP();
-            uc.Dock = DockStyle.Fill;
-
-            Panel parentPanel = this.Parent as Panel;
-            if (parentPanel != null)
+            FormPopup popup = new FormPopup(uc, "Thêm Sản Phẩm Mới");
+            if (popup.ShowDialog() == DialogResult.OK)
             {
-                parentPanel.Controls.Clear();
-                parentPanel.Controls.Add(uc);
-                uc.BringToFront();
+                LoadDataSP();
             }
         }
 
@@ -369,14 +365,10 @@ DROP TABLE #RealNamesSP;
             decimal giaBan = Convert.ToDecimal(row.Cells["GiaBan"].Value ?? 0);
 
             UC_SuaSP uc = new UC_SuaSP(id, maVach, tenSP, soLuong, giaNhap, giaBan);
-            uc.Dock = DockStyle.Fill;
-
-            Panel parentPanel = this.Parent as Panel;
-            if (parentPanel != null)
+            FormPopup popup = new FormPopup(uc, "Sửa Thông Tin Sản Phẩm");
+            if (popup.ShowDialog() == DialogResult.OK)
             {
-                parentPanel.Controls.Clear();
-                parentPanel.Controls.Add(uc);
-                uc.BringToFront();
+                LoadDataSP();
             }
         }
     }
