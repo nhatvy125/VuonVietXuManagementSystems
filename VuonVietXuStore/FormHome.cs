@@ -336,7 +336,6 @@ namespace VuonVietXuStore
 
                     pictureBox1.Image = Image.FromFile(selectedImage);
 
-                    MessageBox.Show("Đổi avatar thành công!");
                 }
                 catch (Exception ex)
                 {
