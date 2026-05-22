@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,8 +17,8 @@ namespace VuonVietXuStore
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Chạy trang Đăng nhập (Form1) đầu tiên khi mở ứng dụng
-            Application.Run(new Form1());
+            // Đã sửa từ Form1 thành FormHome để chạy thẳng vào Trang Chủ xịn của bạn
+            Application.Run(new FormHome());
         }
     }
 }
