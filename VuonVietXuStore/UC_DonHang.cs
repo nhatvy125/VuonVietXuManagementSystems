@@ -16,6 +16,13 @@ namespace VuonVietXuStore
             InitializeComponent();
             SetupStyles();
             LoadDataDonHang();
+
+            if (FormHome.CurrentRoleId == 2) // Nhân viên kho
+            {
+                btnAdd.Visible = false;
+                btnCapNhatTrangThai.Visible = false;
+                cbTrangThai.Enabled = false;
+            }
         }
 
         private void SetupStyles()

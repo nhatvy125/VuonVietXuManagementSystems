@@ -83,6 +83,19 @@ namespace VuonVietXuStore
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.FlatAppearance.BorderSize = 0;
             btnCancel.Cursor = Cursors.Hand;
+
+            if (FormHome.CurrentRoleId == 3) // Nhân viên bán hàng
+            {
+                lblTitle.Text = "CHI TIẾT THÔNG TIN SẢN PHẨM";
+                txtSP.ReadOnly = true;
+                txtMaVach.ReadOnly = true;
+                txtSoLuong.ReadOnly = true;
+                txtGiaNhap.ReadOnly = true;
+                txtGiaBan.ReadOnly = true;
+                btnSave.Visible = false;
+                btnCancel.Text = "🚪 Đóng";
+                btnCancel.Location = new Point(170, 310);
+            }
         }
 
         private void txtGiaTien_TextChanged(object sender, EventArgs e)
