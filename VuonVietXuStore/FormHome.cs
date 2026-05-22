@@ -19,9 +19,19 @@ namespace VuonVietXuStore
         System.Collections.Generic.List<string> permissions = new System.Collections.Generic.List<string>();
         System.Data.SqlClient.SqlConnection connect = new System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["VuonVietXuStore"].ConnectionString);
 
+        public static int CurrentRoleId { get; private set; }
+        public static string CurrentUsername { get; private set; }
+        public static string CurrentDisplayName { get; private set; }
+        public static string CurrentRoleName { get; private set; }
+
         public FormHome(Form1 loginForm, int roleId, string loginUsername, string displayName, string roleName)
         {
             InitializeComponent();
+
+            CurrentRoleId = roleId;
+            CurrentUsername = loginUsername;
+            CurrentDisplayName = displayName;
+            CurrentRoleName = roleName;
 
             this.loginForm = loginForm;
             this.roleId = roleId;

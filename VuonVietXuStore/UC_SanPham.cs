@@ -65,6 +65,11 @@ namespace VuonVietXuStore
             dgvSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnThem.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 
+            if (FormHome.CurrentRoleId == 3)
+            {
+                btnThem.Visible = false;
+            }
+
             LoadDataSP();
         }
 
@@ -358,7 +363,8 @@ DROP TABLE #RealNamesSP;
             decimal giaBan = Convert.ToDecimal(row.Cells["GiaBan"].Value ?? 0);
 
             UC_SuaSP uc = new UC_SuaSP(id, maVach, tenSP, soLuong, giaNhap, giaBan);
-            FormPopup popup = new FormPopup(uc, "Sửa Thông Tin Sản Phẩm");
+            string title = (FormHome.CurrentRoleId == 3) ? "Chi Tiết Thông Tin Sản Phẩm" : "Sửa Thông Tin Sản Phẩm";
+            FormPopup popup = new FormPopup(uc, title);
             if (popup.ShowDialog() == DialogResult.OK)
             {
                 LoadDataSP();
