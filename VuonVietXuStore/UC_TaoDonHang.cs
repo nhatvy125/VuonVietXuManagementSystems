@@ -93,9 +93,21 @@ namespace VuonVietXuStore
         // ─── Thêm sản phẩm vào giỏ ───────────────────────────────────────────
         private void btnThemSP_Click(object sender, EventArgs e)
         {
-            if (!(cboSP.SelectedItem is ComboItem spItem) || spItem.Id <= 0)
+            // Hỗ trợ cả chọn từ list và gõ tay
+            ComboItem spItem = cboSP.SelectedItem as ComboItem;
+            if (spItem == null || spItem.Id <= 0)
             {
-                MessageBox.Show("Vui lòng chọn sản phẩm.", "Thông báo",
+                // Thử tìm theo tên gõ vào
+                string typed = cboSP.Text.Trim().ToLower();
+                foreach (var item in cboSP.Items)
+                {
+                    if (item is ComboItem ci && ci.Name.ToLower().Contains(typed) && ci.Id > 0)
+                    { spItem = ci; break; }
+                }
+            }
+            if (spItem == null || spItem.Id <= 0)
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm từ danh sách.", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -188,9 +200,19 @@ namespace VuonVietXuStore
         // ─── Lưu đơn hàng ────────────────────────────────────────────────────
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (!(cboKH.SelectedItem is ComboItem khItem) || khItem.Id <= 0)
+            ComboItem khItem = cboKH.SelectedItem as ComboItem;
+            if (khItem == null || khItem.Id <= 0)
             {
-                MessageBox.Show("Vui lòng chọn khách hàng.", "Thông báo",
+                string typed = cboKH.Text.Trim().ToLower();
+                foreach (var item in cboKH.Items)
+                {
+                    if (item is ComboItem ci && ci.Name.ToLower().Contains(typed) && ci.Id > 0)
+                    { khItem = ci; break; }
+                }
+            }
+            if (khItem == null || khItem.Id <= 0)
+            {
+                MessageBox.Show("Vui lòng chọn khách hàng từ danh sách.", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -336,15 +358,33 @@ namespace VuonVietXuStore
             cboKH.Location         = new Point(controlX, 12);
             cboKH.Width            = 280;
             cboKH.Font             = new Font("Segoe UI", 9.5f);
-            cboKH.DropDownStyle    = ComboBoxStyle.DropDownList;
+            cboKH.DropDownStyle    = ComboBoxStyle.DropDown;
+            cboKH.AutoCompleteMode   = AutoCompleteMode.SuggestAppend;
+            cboKH.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboKH.FlatStyle        = FlatStyle.Flat;
+            cboKH.SelectedIndexChanged += (s, ev) =>
+            {
+                if (_cart != null && _cart.Rows.Count > 0)
+                {
+                    var res = MessageBox.Show(
+                        "Đổi khách hàng sẽ xóa giỏ hàng hiện tại. Tiếp tục?",
+                        "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (res == DialogResult.Yes)
+                    {
+                        _cart.Rows.Clear();
+                        UpdateTotal();
+                    }
+                }
+            };
 
             // Row 2 – Sản phẩm + Số lượng + Thêm
             var lblSP = new Label { Text = "Sản phẩm:", Location = new Point(labelX, 16 + rowH), AutoSize = true, Font = new Font("Segoe UI", 9.5f) };
             cboSP.Location         = new Point(controlX, 12 + rowH);
             cboSP.Width            = 260;
             cboSP.Font             = new Font("Segoe UI", 9.5f);
-            cboSP.DropDownStyle    = ComboBoxStyle.DropDownList;
+            cboSP.DropDownStyle    = ComboBoxStyle.DropDown;
+            cboSP.AutoCompleteMode   = AutoCompleteMode.SuggestAppend;
+            cboSP.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboSP.FlatStyle        = FlatStyle.Flat;
 
             var lblSL = new Label { Text = "Số lượng:", Location = new Point(controlX + 270, 16 + rowH), AutoSize = true, Font = new Font("Segoe UI", 9.5f) };
